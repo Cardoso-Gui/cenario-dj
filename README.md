@@ -80,7 +80,31 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
 Compare as seis páginas em desktop e celular, incluindo cabeçalho, rodapé,
 textos, imagens e navegação. Confira também abertura/fechamento da história,
 carrossel e visualizador de fotos, teclado, preferência por movimento reduzido
-e reprodução dos vídeos. O projeto não contém uma suíte de testes automatizados.
+e reprodução dos vídeos. Inclua telas de 320, 375, 390, 650, 651, 768 e 1440 pixels,
+celular na horizontal e zoom de 200%. Confira se os botões continuam legíveis,
+sem corte, e se todos os destinos do menu permanecem acessíveis.
+
+Os testes estáticos usam apenas a biblioteca padrão do Python:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+Eles verificam a prioridade do botão de contratação, metadados da Home, caminhos
+locais, destinos das âncoras, página ativa no menu, ordem dos estilos e links que
+abrem em outra aba. Não substituem a revisão visual em navegador nem verificam
+o funcionamento de serviços externos.
+
+## Compartilhamento da Home
+
+`index.html` define URL canônica, Open Graph e Twitter Card com a URL oficial do
+GitHub Pages. A prévia usa a foto original `assets/flavinnho-live.jpg`, sem modificar
+o arquivo. As dimensões declaradas são 1152 × 1536 pixels. O Twitter Card usa
+`summary` para evitar o recorte panorâmico de uma foto vertical.
+
+Após uma publicação autorizada, confira o link no WhatsApp e nas redes desejadas.
+Os aplicativos controlam o recorte e podem manter a prévia antiga em cache;
+a presença dos metadados não garante uma atualização imediata da prévia.
 
 ## Publicação
 

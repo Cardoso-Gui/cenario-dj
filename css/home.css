@@ -60,12 +60,12 @@
   border-radius: 40px
 }
 .page-inicio .primary {
-  background: #ba40ff;
+  background: #8d25c7;
   border: 1px solid #ece7ee;
   box-shadow: 0 0 18px #ba40ffa0,inset 0 0 12px #ce60ff42
 }
 .page-inicio .primary:hover {
-  background: #ce5cfc;
+  background: #9e2bdc;
   transform: translateY(-2px)
 }
 .page-inicio .outline {
@@ -400,10 +400,13 @@
 }
 @media(max-width:650px) {
   .page-inicio .hero {
-    min-height: 840px;
-    height: 100svh;
-    max-height: 1100px;
-    padding: 330px 6% 100px
+    min-height: 100svh;
+    height: auto;
+    max-height: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: calc(var(--header) + clamp(150px, 44vw, 250px)) 6% 24px
   }
   .page-inicio .hero-content {
     width: 100%;
@@ -424,26 +427,45 @@
     font-size: .85em
   }
   .page-inicio .hero-tagline {
-    font-size: 10px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
     margin-bottom: 20px
   }
+  .page-inicio .hero-tagline br {
+    display: initial
+  }
   .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
     gap: 12px
   }
   .page-inicio .hero-actions .button {
-    font-size: 8px;
-    padding: 12px 15px;
+    font-size: 12px;
+    padding: 14px 18px;
     gap: 10px;
-    min-height: 45px
+    min-height: 52px
   }
   .music-link {
-    font-size: 7px;
+    align-items: center;
+    min-height: 44px;
+    font-size: 10px;
     letter-spacing: 1px;
     margin-top: 12px
   }
   .page-inicio .hero-bottom {
-    font-size: 6px
+    position: static;
+    margin-top: 24px;
+    padding-top: 12px;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 9px
+  }
+  .page-inicio .hero-bottom a {
+    min-height: 44px;
+    gap: 12px
+  }
+  .page-inicio .hero-index {
+    display: none
   }
   .home-about {
     display: block;
@@ -460,7 +482,13 @@
     font-size: 27px
   }
   .home-about-copy>p:not(.eyebrow) {
-    font-size: 14px
+    font-size: 16px
+  }
+  .page-inicio .home-about .button {
+    min-height: 48px;
+    max-width: 100%;
+    font-size: 11px;
+    gap: 12px
   }
   .home-events {
     padding: 35px 7%
@@ -473,7 +501,8 @@
     margin-bottom: 10px
   }
   .events-heading>a {
-    font-size: 8px;
+    min-height: 44px;
+    font-size: 11px;
     gap: 12px
   }
   .event-preview {
@@ -493,22 +522,22 @@
     min-width: 150px
   }
   .event-preview h3 {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5
   }
   .event-preview p {
-    font-size: 11px
+    font-size: 14px
   }
   .circle-link {
-    height: 30px;
-    width: 30px;
-    font-size: 18px
+    height: 44px;
+    width: 44px;
+    font-size: 22px
   }
   .home-booking {
     padding: 60px 6%
   }
   .home-booking .eyebrow {
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 2px
   }
   .home-booking h2 {
@@ -516,8 +545,11 @@
     letter-spacing: -1px
   }
   .home-booking .button {
-    min-width: 240px;
-    font-size: 9px
+    min-width: 0;
+    width: min(100%, 320px);
+    min-height: 52px;
+    font-size: 12px;
+    gap: 12px
   }
   .page-inicio footer .wordmark {
     font-size: 22px
@@ -555,8 +587,8 @@
 @media(max-width:650px) {
   .page-inicio .hero {
     background-image: linear-gradient(0deg,#07080d 0%,#07080ddd 20%,#07080d25 65%,#07080d10),url('../assets/home-dj.jpg');
-    background-position: center,68% top;
-    background-size: cover,auto 80%;
+    background-position: center,72% top;
+    background-size: cover,auto clamp(420px, 110vw, 620px);
     background-color: #050713
   }
   .portrait-collage>img {

@@ -332,14 +332,17 @@ footer {
   :root {
     --header: 108px}
   .site-header {
-    height: 108px;
+    height: var(--header);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 5% 8px
+    gap: 4px;
+    padding: 8px 5%
   }
   .site-header .wordmark {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 24px;
     padding-bottom: 14px
   }
@@ -352,7 +355,12 @@ footer {
     width: 100%
   }
   .site-header nav a {
-    font-size: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 11px;
     padding: 10px 3px
   }
   .site-header nav a[aria-current]:after {
@@ -650,5 +658,50 @@ footer .social-links a:focus-visible {
   }
   footer .social-links {
     gap: 8px 20px
+  }
+  footer .wordmark,.back-top {
+    display: flex;
+    align-items: center;
+    min-height: 44px
+  }
+  .back-top {
+    justify-content: flex-end;
+    font-size: 11px
+  }
+  .button {
+    max-width: 100%;
+    min-height: 48px;
+    gap: 12px;
+    padding: 16px 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 1px
+  }
+  .button span {
+    flex-shrink: 0
+  }
+}
+/* Keep all six destinations visible on narrow phones without tiny labels. */
+@media(max-width:380px) {
+  :root {
+    --header: 156px
+  }
+  .site-header nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+  }
+  .site-header nav a {
+    font-size: 12px
+  }
+  .site-header nav a[aria-current]:after {
+    width: 44px;
+    left: calc(50% - 22px)
+  }
+  footer {
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+  }
+  footer .wordmark img {
+    max-width: 100%
   }
 }

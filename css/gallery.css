@@ -191,8 +191,8 @@ html:has(.photo-viewer[open]) {
   position: absolute;
   top: 8px;
   right: 10px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: 1px solid #bd43f899;
   border-radius: 50%;
   background: #1d0d28;
@@ -225,16 +225,19 @@ html:has(.photo-viewer[open]) {
     width: min(62vw, 260px);
   }
   .gallery-controls {
-    gap: 13px;
+    gap: 12px;
+    flex-wrap: wrap;
     margin-top: 0;
   }
   .gallery-arrow {
-    height: 42px;
-    width: 42px;
+    height: 44px;
+    width: 44px;
+    flex-shrink: 0;
   }
   .gallery-play {
     padding: 10px 12px;
-    font-size: 7px;
+    font-size: 10px;
+    letter-spacing: 1px;
   }
   .photo-card-hint {
     padding: 26px 16px 15px;
