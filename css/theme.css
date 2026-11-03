@@ -647,6 +647,42 @@ footer .social-links a:focus-visible {
   outline-offset: 5px;
   border-radius: 2px
 }
+/* Credit for the studio that built the site. Reads --accent and --muted so it follows each DJ's identity. */
+footer .made-by {
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted)
+}
+footer .made-by strong {
+  color: #f4f1f7;
+  font-weight: 700
+}
+footer .made-by a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--accent)
+}
+footer .made-by a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px
+}
+footer .made-by a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 2px
+}
 .youtube-link {
   margin: 16px 0 0 16px
 }
