@@ -13,3 +13,6 @@ test('Compartilhamento aponta para a arte e URL públicas corretas',()=>{const p
 
 
 test('Home não exibe notas técnicas do catálogo',()=>{const path=require('node:path');const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');const js=fs.readFileSync(path.join(__dirname,'../js/cenario-home.js'),'utf8');assert.ok(!html.includes('Sobre o catálogo e os filtros'));assert.ok(!html.includes('id="coverage-note"'));assert.match(js,/if\(coverageNote\)coverageNote\.textContent=data\.coverage/);assert.ok(html.includes('id="encomende"'));assert.ok(html.includes('css/visual-refinement.css?v=20261104'));});
+
+
+test('Textos públicos mantêm instruções sem notas internas',()=>{const path=require('node:path');const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');const js=fs.readFileSync(path.join(__dirname,'../js/cenario-home.js'),'utf8');assert.ok(!html.includes('Seleção fixa, independente dos filtros'));assert.ok(!js.includes('nesta base oficial'));assert.ok(!js.includes('Regiões deste estado em atualização'));assert.ok(js.includes('Você pode buscar DJs em todo o estado.'));assert.ok(html.includes('Sem filtros, você vê todos os DJs.'));assert.ok(js.includes('Nenhum DJ encontrado com esses filtros.'));});
