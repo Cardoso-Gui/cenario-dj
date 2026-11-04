@@ -1,0 +1,104 @@
+/* A compact, static invitation immediately after the home introduction. */
+.page-inicio .home-instagram {
+  position: relative;
+  background: linear-gradient(110deg, #21102e, #160c21 65%, #251032);
+  border-top: 1px solid #ba40ff55;
+  border-bottom: 1px solid #ba40ff55;
+}
+.home-instagram-link {
+  scroll-margin-block-start: 200px;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  min-height: 144px;
+  padding: 28px 5%;
+  color: #f8f2fc;
+}
+.home-instagram-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #bf6fe377;
+  border-radius: 14px;
+  color: #dfa9fa;
+  background: #b140e012;
+}
+.home-instagram-copy { min-width: 0; }
+.home-instagram-label {
+  margin: 0 0 8px;
+  color: #dca6f5;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .5px;
+}
+.page-inicio .home-instagram-title {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(20px, 1.8vw, 27px);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: -.35px;
+  text-transform: none;
+}
+.home-instagram-description {
+  margin: 9px 0 0;
+  color: #d8c8e2;
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 480px;
+}
+.home-instagram-profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 48px;
+  padding: 11px 21px;
+  border: 1px solid #d390f0;
+  border-radius: 30px;
+  background: #381448;
+  color: #f8f2fc;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.home-instagram-link:hover .home-instagram-profile {
+  border-color: #efc9ff;
+  background: #4a1b61;
+}
+.home-instagram-link:focus-visible {
+  outline: 2px solid #f3d6ff;
+  outline-offset: -6px;
+}
+.home-instagram-new-tab {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 800px) {
+  .home-instagram-link { gap: 18px; }
+  .home-instagram-profile { gap: 12px; padding-inline: 16px; }
+}
+@media (max-width: 650px) {
+  .home-instagram-link {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 16px;
+    padding: 24px 6%;
+  }
+  .home-instagram-icon { width: 40px; height: 40px; border-radius: 12px; }
+  .home-instagram-label { font-size: 12px; margin-bottom: 7px; }
+  .page-inicio .home-instagram-title { font-size: 20px; }
+  .home-instagram-description { margin-top: 8px; font-size: 14px; }
+  .home-instagram-profile { grid-column: 2; justify-self: start; min-height: 44px; }
+}
