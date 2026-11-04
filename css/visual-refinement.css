@@ -9,7 +9,27 @@
 }
 .filter-help { color: var(--muted); }
 .dj-events { font-size: 13px; line-height: 1.6; }
-.featured-toolbar { font-size: 10px; }
+.featured-toolbar {
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 12px;
+  min-height: 64px;
+  color: var(--cream);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 1.5px;
+}
+.featured-toolbar::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  flex: 0 0 4px;
+  border-radius: 2px;
+  background: var(--green);
+}
 .results-toolbar { font-size: 12px; }
 .catalog-badge { font-size: 10px; }
 .more-heading p { font-size: 12px; }
@@ -59,7 +79,7 @@
   .hero-eyebrow { margin-bottom: 16px; }
   .main-wrap { margin-top: -26px; }
   .filter-help { margin-top: 12px; font-size: 12px; }
-  .featured-toolbar { min-height: 64px; gap: 4px; }
+  .featured-toolbar { min-height: 60px; font-size: 14px; letter-spacing: 1.2px; }
   .featured-toolbar span + span { font-size: 11px; }
   .dj-events { font-size: 12px; }
   .catalog-note { font-size: 12px; }
