@@ -31,7 +31,7 @@ for (const page of pages) {
     for (const destination of ['https://www.instagram.com/flavinnhodj/', 'https://www.youtube.com/@flavinnhodj/featured', 'https://open.spotify.com/intl-pt/artist/23kYeZykGN0EkOd29kArq4']) {
       assert.ok(footer.includes(`href="${destination}"`));
     }
-    assert.equal((html.match(/css\/footer-invite\.css\?v=1/g) || []).length, 1);
+    assert.equal((html.match(/css\/footer-invite\.css\?v=2/g) || []).length, 1);
     assert.ok(html.indexOf('css/footer-invite.css') > html.indexOf('css/stage-effects.css'));
   });
 }
@@ -59,4 +59,11 @@ test('convite: contato para sites é separado da contratação do artista', () =
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
   assert.match(main, /https:\/\/wa\.me\/5517996519630/);
   assert.doesNotMatch(main, /5517991951286|footer-invite/);
+});
+
+test('convite: frase e botão ficam próximos no desktop', () => {
+  const css = read('css/footer-invite.css');
+  assert.match(css, /footer \.footer-invite\s*\{[^}]*justify-content:\s*flex-start/);
+  assert.match(css, /footer \.footer-invite\s*\{[^}]*gap:\s*10px 24px/);
+  assert.doesNotMatch(css, /justify-content:\s*space-between/);
 });
