@@ -5,7 +5,7 @@ const form=$('busca'),state=$('estado'),region=$('regiao'),style=$('estilo'),nam
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icon=id=>`<svg aria-hidden="true"><use href="#${id}-icon"/></svg>`;
 for(const [code,label]of data.states){state.add(new Option(label,code));}
-$('coverage-note').textContent=data.coverage;
+const coverageNote=$('coverage-note');if(coverageNote)coverageNote.textContent=data.coverage;
 function filters(){return {state:state.value,region:region.value,style:style.value,name:name.value.trim()};}
 function updateRegions(){
  const selected=state.value,known=Object.hasOwn(data.regions,selected),options=catalog.regionsForState(data.regions,selected);
