@@ -103,3 +103,7 @@ A home `index.html` usa a identidade verde do Cenário, com o Flavinnho fixo em 
 - `tests/cenario-catalog.test.cjs`: testes, executáveis com `node --test tests/cenario-catalog.test.cjs`.
 
 A versão pública contém apenas artistas reais. Os perfis fictícios da prévia não fazem parte deste catálogo. A foto do Flavinnho usa `assets/galeria/na-controladora.webp`; o fundo usa o recurso ilustrativo já existente `assets/home-publico.jpg`.
+
+A seção `#encomende`, após o Sobre, recebe pedidos de site ou press kit pelo WhatsApp do Gui. Ela abre uma mensagem genérica, que só é enviada pelo visitante. O canal comercial do Cenário é separado do contato de contratação do Flavinnho.
+
+A home inclui Open Graph e Twitter Card com URL canônica pública. A arte aprovada fica em `assets/cenario-social.png` (1734 × 907), sem alterações na composição. Aplicativos de mensagens podem manter a miniatura anterior em cache.
