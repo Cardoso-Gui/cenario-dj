@@ -652,3 +652,104 @@ footer .social-links a:focus-visible {
     gap: 8px 20px
   }
 }
+
+
+/* Balanced navigation with five destinations; the visual identity is unchanged. */
+.site-header {
+  gap: clamp(16px, 2.4vw, 46px);
+  padding-inline: 4%;
+}
+.site-header .wordmark img {
+  width: clamp(180px, 14vw, 240px);
+}
+.site-header nav {
+  flex: 1;
+  justify-content: space-evenly;
+  gap: clamp(12px, 1.8vw, 34px);
+  min-width: 0;
+}
+.site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 8px;
+  font-size: clamp(12px, .88vw, 16px);
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+.site-header nav a[aria-current]:after {
+  width: calc(100% - 8px);
+  left: 4px;
+  bottom: 1px;
+}
+.site-header .header-cta {
+  flex-shrink: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  font-size: 11px;
+}
+.icon-arrow-up-right {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -.12em;
+  overflow: visible;
+}
+footer .social-links a {
+  gap: .55em;
+}
+@media(max-width:1100px) {
+  .site-header {
+    gap: 18px;
+  }
+  .site-header .wordmark img {
+    width: 170px;
+  }
+  .site-header nav {
+    gap: 8px;
+  }
+  .site-header nav a {
+    font-size: 12px;
+    letter-spacing: .03em;
+    padding-inline: 5px;
+  }
+  .site-header .header-cta {
+    padding-inline: 18px;
+    font-size: 10px;
+  }
+}
+@media(max-width:800px) {
+  .site-header .header-cta {
+    display: none;
+  }
+}
+@media(max-width:650px) {
+  .site-header {
+    gap: 6px;
+    padding: 8px 4%;
+  }
+  .site-header .wordmark img {
+    width: 155px;
+  }
+  .site-header nav {
+    flex: none;
+    gap: 0;
+  }
+  .site-header nav a {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px 2px;
+    font-size: 10.5px;
+    letter-spacing: .025em;
+  }
+  .site-header nav a[aria-current]:after {
+    width: calc(100% - 16px);
+    left: 8px;
+    bottom: 2px;
+  }
+}

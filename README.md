@@ -1,7 +1,7 @@
 # Flavinnho DJ
 
 Site estático em HTML, CSS e JavaScript, sem framework ou etapa de compilação.
-São seis páginas independentes; o menu marca a página atual com `aria-current="page"`.
+O site individual tem cinco páginas independentes; o menu marca a página atual com `aria-current="page"`.
 
 ## Executar localmente
 
@@ -18,14 +18,16 @@ mas o servidor local é preferível para conferir navegação e carregamento de 
 
 | Arquivo ou pasta | Responsabilidade |
 | --- | --- |
-| `index.html` | Página inicial, apresentação e chamadas para as páginas internas |
+| `index.html` | Home do Cenário DJ e catálogo de artistas |
+| `flavinnho.html` | Página inicial do Flavinnho, apresentação e chamadas para as páginas internas |
 | `sobre.html` | Biografia, conteúdo original da história e alternativa em `<details>` |
-| `eventos.html` | Agenda pública; atualmente informa que novas datas serão anunciadas |
 | `mixes.html` | Links para Spotify e YouTube |
 | `fotos.html` | Fotos do carrossel e vídeos de aftermovies |
 | `contato.html` | WhatsApp e telefone |
 | `css/styles.css` | Estilos base, elementos compartilhados e responsividade |
 | `css/theme.css` | Identidade visual compartilhada e ajustes das páginas internas |
+| `css/surfaces.css` | Fundos roxos discretos das páginas, cabeçalho e rodapé |
+| `css/readability.css` | Tamanhos de leitura no desktop, carregados após os estilos específicos |
 | `css/home.css` | Estilos exclusivos da página inicial |
 | `css/gallery.css` | Carrossel, visualizador de fotos e aftermovies |
 | `css/story-modal.css` | Botão e diálogo da história |
@@ -43,7 +45,7 @@ Os arquivos de estilo são carregados nesta ordem: base (`styles.css`), tema
 não a altere sem comparar o resultado visual. `--accent` representa a cor de
 destaque usada nos elementos visuais do site.
 
-O cabeçalho e o rodapé estão repetidos nas seis páginas para manter a estrutura
+O cabeçalho e o rodapé estão repetidos nas cinco páginas do Flavinnho para manter a estrutura
 estática simples. Ao atualizar menus, logo ou redes sociais, confira todas as
 páginas. Preserve `aria-current="page"` somente no link da página correspondente.
 
@@ -56,8 +58,6 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
 - **Vídeo:** adicione o MP4 e a capa em `assets/videos/` e um `.aftermovie-card`
   em `fotos.html`. Ajuste título, `poster`, `<source>`, link de abertura e rótulos.
   A classe `.aftermovie-video--landscape` identifica o formato horizontal no celular.
-- **Agenda:** publique apenas datas públicas confirmadas. A versão atual não
-  apresenta eventos fictícios.
 
 ## Conteúdo e origem dos recursos
 
@@ -77,15 +77,16 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
 
 ## Conferir antes de publicar
 
-Compare as seis páginas em desktop e celular, incluindo cabeçalho, rodapé,
+Compare as cinco páginas do Flavinnho em desktop e celular, incluindo cabeçalho, rodapé,
 textos, imagens e navegação. Confira também abertura/fechamento da história,
 carrossel e visualizador de fotos, teclado, preferência por movimento reduzido
-e reprodução dos vídeos. O projeto não contém uma suíte de testes automatizados.
+e reprodução dos vídeos. Execute também `node --test tests/*.test.cjs` para conferir
+as regressões do catálogo e da navegação.
 
 ## Publicação
 
 O GitHub Pages publica a raiz da branch `main`:
-https://cardoso-gui.github.io/flavinnho-site/
+https://cardoso-gui.github.io/cenario-dj/
 
 O arquivo `.nojekyll` mantém a publicação dos arquivos estáticos sem processamento
 pelo Jekyll. Após publicar, confira a execução de deploy e o site resultante.
@@ -107,3 +108,4 @@ A versão pública contém apenas artistas reais. Os perfis fictícios da prévi
 A seção `#encomende`, após o Sobre, recebe pedidos de site ou press kit pelo WhatsApp do Gui. Ela abre uma mensagem genérica, que só é enviada pelo visitante. O canal comercial do Cenário é separado do contato de contratação do Flavinnho.
 
 A home inclui Open Graph e Twitter Card com URL canônica pública. A arte aprovada fica em `assets/cenario-social.png` (1734 × 907), sem alterações na composição. Aplicativos de mensagens podem manter a miniatura anterior em cache.
+

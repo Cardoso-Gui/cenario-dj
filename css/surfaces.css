@@ -1,0 +1,22 @@
+.page-mixes .mixes {
+  background: radial-gradient(ellipse at 95% 80%, #72248a66, transparent 70%), #08050d;
+}
+.page-contato .contact {
+  background: radial-gradient(ellipse at 50% 100%, #7c14ab66, transparent 75%), #08050d;
+}
+.page-fotos .photos {
+  background: radial-gradient(ellipse at 50% 60%, #56207880, transparent 70%), #08050d;
+}
+.page-fotos .aftermovies {
+  background: radial-gradient(ellipse at 50% 30%, #6d15904d, transparent 70%), #08050d;
+}
+.site-header:before {
+  background: linear-gradient(180deg, #2b123ff5 0%, #27103ae8 35%, #230d36a6 62%, #230d3640 82%, transparent 100%);
+}
+footer {
+  background: linear-gradient(110deg, #241030, #190c26 60%, #281035);
+  border-top-color: #bd63f126;
+}
+footer small {
+  color: #aaa0b7;
+}
