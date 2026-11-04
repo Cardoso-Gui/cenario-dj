@@ -27,13 +27,27 @@ function render(sync=true){
  else{$('catalog-grid').innerHTML=`<div class="empty-state grid-empty">${icon('search')}<h2>A busca continua.</h2><p>Nenhum DJ encontrado com esses filtros. Experimente outro estado, região ou estilo, ou limpe a busca para conhecer todos os artistas do catálogo.</p><button type="button" id="empty-clear">Ver todos os DJs →</button></div>`;$('empty-clear').addEventListener('click',reset);}
  if(sync){const params=new URLSearchParams();if(f.state)params.set('estado',f.state);if(f.region)params.set('regiao',f.region);if(f.style)params.set('estilo',f.style);if(f.name)params.set('nome',f.name);const url=location.pathname+(params.size?'?'+params:'')+location.hash;history.replaceState(null,'',url);}
 }
-function reset(){form.reset();updateRegions();render();}
+function reset(){const focusResults=$('catalog-grid').contains(document.activeElement);form.reset();updateRegions();render();if(focusResults)$('catalog-grid').focus({preventScroll:true});}
 function restore(){const p=new URLSearchParams(location.search);state.value=p.get('estado')||'';updateRegions();region.value=p.get('regiao')||'';style.value=p.get('estilo')||'';name.value=p.get('nome')||'';render(false);}
 state.addEventListener('change',()=>{updateRegions();render();});region.addEventListener('change',()=>render());style.addEventListener('change',()=>render());name.addEventListener('input',()=>render());
-form.addEventListener('submit',e=>{e.preventDefault();render();$('djs').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
+form.addEventListener('submit',e=>{e.preventDefault();render();$('catalog-grid').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});$('catalog-grid').focus({preventScroll:true});});
 $('clear-filters').addEventListener('click',reset);
-$('open-search').addEventListener('click',()=>{name.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});name.focus({preventScroll:true});});
+$('open-search').addEventListener('click',()=>{closeMenu();name.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});name.focus({preventScroll:true});});
 const menu=$('mobile-nav'),menuBtn=$('menu-btn');function closeMenu(){menu.hidden=true;menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Abrir menu');}menuBtn.addEventListener('click',()=>{const show=menu.hidden;menu.hidden=!show;menuBtn.setAttribute('aria-expanded',String(show));menuBtn.setAttribute('aria-label',show?'Fechar menu':'Abrir menu');});
-document.querySelectorAll('[data-focus]').forEach(link=>link.addEventListener('click',()=>{closeMenu();$(link.dataset.focus).focus();}));menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',e=>{
+ if(e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+ const hash=link.getAttribute('href'),section=$(hash.slice(1)),target=$(link.dataset.focus||hash.slice(1));
+ if(!section||!target)return;
+ e.preventDefault();closeMenu();
+ if(location.hash!==hash)history.pushState(null,'',location.pathname+location.search+hash);
+ section.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ target.focus({preventScroll:true});
+}));
+document.addEventListener('keydown',e=>{
+ if(e.key!=='Escape'||menu.hidden)return;
+ const returnFocus=menu.contains(document.activeElement)||document.activeElement===menuBtn;
+ closeMenu();if(returnFocus)menuBtn.focus();
+});
+matchMedia('(max-width: 600px)').addEventListener('change',e=>{if(!e.matches)closeMenu();});
 window.addEventListener('popstate',restore);$('year').textContent=new Date().getFullYear();restore();
 })();

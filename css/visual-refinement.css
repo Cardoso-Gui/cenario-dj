@@ -105,8 +105,26 @@
   .name-search input { height: 48px; }
 }
 
-/* Keep the featured artist first, with breathing room before the search. */
-.discover-grid + .search-panel { margin-top: 32px; }
+/* Keep the catalog heading and count above its filters and results. */
+.discover-grid + .more-catalog { margin-top: 32px; }
+.more-catalog .catalog-grid { margin-top: 24px; scroll-margin-top: 25px; }
 @media (max-width: 600px) {
-  .discover-grid + .search-panel { margin-top: 24px; }
+  .discover-grid + .more-catalog { margin-top: 24px; }
+  .more-catalog .catalog-grid { margin-top: 20px; }
+}
+
+/* Comfortable header controls and keyboard navigation destinations. */
+.icon-btn, .menu-btn { min-width: 44px; min-height: 44px; flex-shrink: 0; }
+.more-catalog:focus-visible, .catalog-grid:focus-visible, .about:focus-visible, .commission:focus-visible { outline: 2px solid var(--green); outline-offset: 5px; }
+@media (min-width: 601px) and (max-width: 900px) {
+  .nav-shell { gap: 12px; padding-inline: 20px; }
+  .desktop-nav { gap: 10px; }
+}
+@media (max-width: 600px) {
+  .nav-shell { gap: 10px; }
+  .menu-btn { padding: 7px; align-items: center; justify-content: center; }
+}
+@media (max-width: 380px) {
+  .nav-shell { gap: 6px; padding-inline: 16px; }
+  .brand span { font-size: 21px; }
 }
