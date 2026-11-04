@@ -37,7 +37,7 @@
 document.getElementById('year').textContent=new Date().getFullYear();
 const form=document.getElementById('search-form'),cards=[...document.querySelectorAll('.dj-card')],empty=document.getElementById('no-results'),count=document.getElementById('results-count');
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
-function search(){let city=norm(form.city.value),style=norm(form.style.value),event=norm(form.event.value),visible=0;cards.forEach(card=>{let ok=(!city||norm(card.dataset.city).includes(city))&&(!style||norm(card.dataset.styles).split('|').includes(style))&&(!event||norm(card.dataset.events).split('|').includes(event));card.hidden=!ok;if(ok)visible++});empty.style.display=visible?'none':'block';count.textContent=visible;document.getElementById('djs').scrollIntoView({behavior:'smooth'});}
+function search(){let city=norm(document.getElementById('city').value),style=norm(document.getElementById('style').value),event=norm(document.getElementById('event').value),visible=0;cards.forEach(card=>{let ok=(!city||norm(card.dataset.city).includes(city))&&(!style||norm(card.dataset.styles).split('|').includes(style))&&(!event||norm(card.dataset.events).split('|').includes(event));card.hidden=!ok;if(ok)visible++});empty.style.display=visible?'none':'block';count.textContent=visible;document.getElementById('djs').scrollIntoView({behavior:'smooth'});}
 form.addEventListener('submit',e=>{e.preventDefault();search()});
 </script>
 </body></html>
