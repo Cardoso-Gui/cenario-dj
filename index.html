@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://cardoso-gui.github.io/cenario-dj/assets/cenario-social.png">
 <meta name="twitter:image:alt" content="Cenário DJ: Encontre DJs perto de você. Marca pin e disco entre luzes verdes e uma pista de dança.">
 <link rel="icon" type="image/svg+xml" href="assets/cenario-mark.svg"><link rel="stylesheet" href="css/cenario-home.css?v=20261104-contact">
-<link rel="stylesheet" href="css/visual-refinement.css?v=20261104-heading-name">
+<link rel="stylesheet" href="css/visual-refinement.css?v=20261104-heading-name-order">
 </head>
 <body>
 <a class="skip-link" href="#busca">Pular para a busca</a>
@@ -37,6 +37,11 @@
 <main>
 <section class="hero" aria-labelledby="hero-title"><div class="hero-photo" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div><div class="wrap hero-copy"><p class="eyebrow hero-eyebrow"><span class="live-dot"></span> MÚSICA. PESSOAS. CONEXÕES.</p><h1 id="hero-title">Encontre o DJ certo<br>para cada <span>momento<svg viewBox="0 0 340 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14Q145 1 337 9M12 17Q170 7 316 9"/></svg></span></h1></div></section>
 <div class="wrap main-wrap">
+<div class="featured-toolbar"><span>DESTAQUE DO CENÁRIO</span></div>
+<section class="discover-grid" id="destaque" aria-label="DJ em destaque">
+<div id="results"></div>
+<aside class="discover-aside"><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h2>Descubra<br> novos DJs</h2><p>Explore os artistas, conheça seus trabalhos e encontre os nomes do cenário brasileiro.</p><a class="circle-link" href="#sobre" aria-label="Conheça o Cenário DJ"><svg><use href="#arrow-icon"/></svg></a></aside>
+</section>
 <form class="search-panel" id="busca" role="search" aria-label="Buscar DJs">
 <div id="name-search" class="name-search"><label class="sr-only" for="nome">Nome do DJ</label><div><svg aria-hidden="true"><use href="#search-icon"/></svg><input id="nome" name="nome" type="search" placeholder="Buscar DJ pelo nome" autocomplete="off" enterkeyhint="search"></div></div>
 <div class="filters">
@@ -47,11 +52,6 @@
 </div>
 <p id="region-help" class="sr-only">Escolha um estado para ver suas regiões metropolitanas. Sem filtros, você vê todos os DJs.</p>
 </form>
-<div class="featured-toolbar"><span>DESTAQUE DO CENÁRIO</span></div>
-<section class="discover-grid" id="destaque" aria-label="DJ em destaque">
-<div id="results"></div>
-<aside class="discover-aside"><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h2>Descubra<br> novos DJs</h2><p>Explore os artistas, conheça seus trabalhos e encontre os nomes do cenário brasileiro.</p><a class="circle-link" href="#sobre" aria-label="Conheça o Cenário DJ"><svg><use href="#arrow-icon"/></svg></a></aside>
-</section>
 <section class="more-catalog" id="djs" aria-labelledby="more-title" tabindex="-1"><div class="more-heading"><h2 id="more-title">Explore o catálogo</h2><p>Encontre seu próximo som</p></div><div class="results-toolbar"><p id="result-count" role="status" aria-live="polite">1 DJ no catálogo</p><button id="clear-filters" class="text-btn" type="button" hidden>Limpar filtros <span aria-hidden="true">×</span></button><span class="catalog-badge">CATÁLOGO</span></div><div class="catalog-grid" id="catalog-grid"></div></section>
 <p class="catalog-note">O catálogo está crescendo. Novos artistas com sites próprios chegam em breve ao Cenário DJ.</p>
 <section class="about" id="sobre"><div><p class="eyebrow">CONHEÇA O CENÁRIO</p><h2>Uma vitrine.<br>Muitas identidades.</h2></div><div class="about-copy"><p>O Cenário DJ reúne artistas com sites criados por Gui. Cada perfil abre uma experiência própria, com a música, a história e os canais de contato do DJ.</p><p>Aqui, você encontra. No site do artista, você se conecta.</p><a href="#busca" class="text-link">Explore o catálogo <svg><use href="#arrow-icon"/></svg></a></div></section>

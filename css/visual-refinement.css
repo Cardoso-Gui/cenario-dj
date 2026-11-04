@@ -104,3 +104,9 @@
 @media (max-width: 600px) {
   .name-search input { height: 48px; }
 }
+
+/* Keep the featured artist first, with breathing room before the search. */
+.discover-grid + .search-panel { margin-top: 32px; }
+@media (max-width: 600px) {
+  .discover-grid + .search-panel { margin-top: 24px; }
+}
