@@ -1,0 +1,54 @@
+/* A quiet secondary invitation, only loaded by the Flavinnho pages. */
+footer .footer-invite {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin-top: 2px;
+  padding-top: 16px;
+  border-top: 1px solid #b080d12e;
+}
+footer .footer-invite p {
+  display: block;
+  margin: 0;
+  color: #bcb0cb;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-align: left;
+}
+footer .footer-invite-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #8b679f;
+  border-radius: 4px;
+  background: #251335;
+  color: #e4dced;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+}
+footer .footer-invite-link:hover {
+  background: #351c48;
+  border-color: #b487cb;
+  color: #fff;
+}
+footer .footer-invite-link:focus-visible {
+  outline: 2px solid #d28aff;
+  outline-offset: 4px;
+}
+@media (max-width: 650px) {
+  footer .footer-invite {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

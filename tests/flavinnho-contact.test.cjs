@@ -7,8 +7,9 @@ const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'contato.html'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'css/contact.css'), 'utf8');
 
-test('contato: ambas as chamadas abrem o mesmo WhatsApp com texto editável', () => {
-  const links = [...html.matchAll(/<a\b[^>]*href="(https:\/\/wa\.me\/[^\"]+)"[^>]*>/g)];
+test('contato: ambas as chamadas de contratação abrem o mesmo WhatsApp com texto editável', () => {
+  const artistContact = html.split('<footer>')[0];
+  const links = [...artistContact.matchAll(/<a\b[^>]*href="(https:\/\/wa\.me\/[^\"]+)"[^>]*>/g)];
   assert.equal(links.length, 2);
   assert.equal(links[0][1], links[1][1]);
   const url = new URL(links[0][1]);
