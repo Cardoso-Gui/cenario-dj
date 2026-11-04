@@ -753,3 +753,10 @@ footer .social-links a {
     bottom: 2px;
   }
 }
+
+/* Give the longer Lançamentos label room while keeping every mobile target visible. */
+@media(max-width:650px) {
+  .site-header nav a[href="./mixes.html"] {
+    flex: 1.6;
+  }
+}

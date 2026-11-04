@@ -16,7 +16,7 @@ for (const file of pages) {
     assert.deepEqual(links.map(link => link[2]), pages);
     assert.deepEqual(links.filter(link => /aria-current="page"/.test(link[1] + link[3])).map(link => link[2]), [file]);
     assert.doesNotMatch(html, /eventos\.html|↗|modelo visual/);
-    assert.match(html, /css\/theme\.css\?v=13/);
+    assert.match(html, /css\/theme\.css\?v=14/);
     assert.match(html, /css\/readability\.css\?v=1/);
     assert.match(html, /css\/surfaces\.css\?v=2/);
     for (const match of html.matchAll(/href="(\.\/[^"?#]+\.html)(?:[?#][^"]*)?"/g)) {

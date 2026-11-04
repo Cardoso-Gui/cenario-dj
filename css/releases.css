@@ -1,0 +1,31 @@
+/* Compact editorial layout, scoped to Lançamentos. Destinations open official platforms. */
+.page-mixes .mixes { padding: calc(var(--header) + 44px) 6.5% 50px; background: radial-gradient(ellipse at 85% 70%, #5523693d, transparent 70%), #08050d; }
+.page-mixes .mixes-intro { max-width: 1160px; margin: 0 auto; }
+.page-mixes .eyebrow { margin: 0 0 15px; color: #d28aff; }
+.page-mixes #mixes-title { transform: none; font-family: 'Barlow Condensed', Impact, sans-serif; font-weight: 800; font-size: clamp(48px,5.7vw,82px); letter-spacing: -.8px; line-height: 1.02; margin: 0 0 20px; }
+.page-mixes #mixes-title em { color: #ba44fc; font-style: italic; }
+.page-mixes .mixes-intro .body-copy { max-width: 650px; color: #cfc5db; font-size: 17px; line-height: 1.65; margin: 0 0 44px; }
+.release-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 42px; max-width: 1160px; margin: 0 auto; }
+.release { min-width: 0; border-top: 1px solid #a153cd70; }
+.release-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0 23px; }
+.platform-label { display: flex; align-items: center; gap: 9px; font-size: 12px; line-height: 1.5; font-weight: 700; letter-spacing: 1.8px; color: #e8d5f5; }
+.release-caption { color: #ac9bb9; font-size: 9px; letter-spacing: 1.5px; }
+.release-content { display: grid; grid-template-columns: minmax(110px,40%) minmax(0,1fr); gap: 23px; align-items: center; }
+.release-art { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+.artist-photo { object-position: center 35%; }
+.release-copy { min-width: 0; }
+.release-kicker { color: #d28aff; font-size: 9px; line-height: 1.5; font-weight: 600; letter-spacing: 1.2px; margin: 0 0 9px; }
+.release h2 { font-family: 'Barlow Condensed', Impact, sans-serif; font-weight: 700; font-size: clamp(27px,2.6vw,40px); letter-spacing: 0; line-height: 1.05; margin: 0 0 10px; }
+.release-credit { margin: 0; color: #bfb2ca; font-size: 11px; line-height: 1.5; }
+.release-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; margin-top: 22px; border: 1px solid #c255f2; border-radius: 30px; padding: 11px 16px; font-size: 13px; line-height: 1.5; font-weight: 600; color: #f5eafb; white-space: nowrap; }
+.release-button:hover { background: #ac39d628; }
+.release-button svg { flex: 0 0 18px; }
+.release-more { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 66px; margin-top: 23px; border-bottom: 1px solid #a153cd42; color: #b5a6c1; font-size: 12px; line-height: 1.6; }
+.release-more > span:not(.sr-only) { display: inline-flex; align-items: center; gap: 7px; color: #e3c1f6; white-space: nowrap; }
+.page-mixes a { scroll-margin-block-start: calc(var(--header) + 30px); }
+.page-mixes a:focus-visible { outline: 2px solid #d28aff; outline-offset: 6px; }
+.mixes-note { margin: 34px auto 0; max-width: 1160px; color: #9f8bad; font-size: 10px; letter-spacing: 2px; line-height: 1.8; }
+@media(max-width:950px) { .release-grid { gap: 28px; } .release-content { grid-template-columns: 35% minmax(0,1fr); gap: 17px; } .release-button { padding: 10px 12px; gap: 8px; } .release-more { align-items: flex-start; flex-direction: column; justify-content: center; gap: 5px; } }
+@media(max-width:800px) { .release-grid { max-width: 580px; grid-template-columns: 1fr; gap: 30px; } .page-mixes .mixes-intro, .mixes-note { max-width: 580px; } .release-content { grid-template-columns: 36% minmax(0,1fr); gap: 24px; } .release h2 { font-size: 34px; } .release-more { flex-direction: row; align-items: center; justify-content: space-between; gap: 18px; } }
+@media(max-width:650px) { .page-mixes .mixes { padding: calc(var(--header) + 32px) 6% 34px; } .page-mixes #mixes-title { font-size: clamp(43px,10.8vw,62px); line-height: 1.02; margin-bottom: 18px; } .page-mixes #mixes-title em { display: block; } .page-mixes .eyebrow { font-size: 10px; letter-spacing: 2px; } .page-mixes .mixes-intro .body-copy { font-size: 15px; line-height: 1.7; margin-bottom: 30px; } .page-mixes .body-copy br { display: none; } .release-heading { padding: 18px 0; } .release-content { grid-template-columns: 34% minmax(0,1fr); gap: 18px; } .release h2 { font-size: 29px; } .release-kicker { font-size: 9px; letter-spacing: .7px; } .release-credit { font-size: 11px; } .release-button { margin-top: 16px; font-size: 11px; gap: 8px; padding-inline: 12px; } .release-more { font-size: 11px; margin-top: 18px; gap: 8px; } .release-more > span:not(.sr-only) { gap: 4px; } .platform-label { font-size: 11px; letter-spacing: 1.3px; } .release-caption { font-size: 8px; } .mixes-note { margin-top: 26px; font-size: 9px; letter-spacing: 1.5px; } }
+@media(max-width:360px) { .release-content { grid-template-columns: 31% minmax(0,1fr); gap: 14px; } .release h2 { font-size: 26px; } .release-more { align-items: flex-start; flex-direction: column; justify-content: center; gap: 4px; } }

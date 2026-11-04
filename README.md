@@ -21,7 +21,7 @@ mas o servidor local é preferível para conferir navegação e carregamento de 
 | `index.html` | Home do Cenário DJ e catálogo de artistas |
 | `flavinnho.html` | Página inicial do Flavinnho, apresentação e chamadas para as páginas internas |
 | `sobre.html` | Biografia, conteúdo original da história e alternativa em `<details>` |
-| `mixes.html` | Links para Spotify e YouTube |
+| `mixes.html` | Lançamentos em destaque e links para Spotify e YouTube (URL mantida por compatibilidade) |
 | `fotos.html` | Mosaico de fotos e vídeos de aftermovies |
 | `contato.html` | WhatsApp e telefone |
 | `css/styles.css` | Estilos base, elementos compartilhados e responsividade |
@@ -117,3 +117,9 @@ A seção `#encomende`, após o Sobre, recebe pedidos de site ou press kit pelo 
 
 A home inclui Open Graph e Twitter Card com URL canônica pública. A arte aprovada fica em `assets/cenario-social.png` (1734 × 907), sem alterações na composição. Aplicativos de mensagens podem manter a miniatura anterior em cache.
 
+
+## Atualizar Lançamentos
+
+A página Lançamentos mantém a URL `mixes.html` e o identificador `#mixes` por compatibilidade. Os destaques são selecionados manualmente, sem integração de atualização automática. Ao publicar uma novidade, verifique o perfil oficial, atualize o título, créditos, imagem e link de destino em `mixes.html` e confira desktop e celular. Os links permanentes para os perfis continuam disponíveis abaixo de cada destaque.
+
+A capa de BAILE DO BLUE vem do CDN público do Spotify. A foto que acompanha o vídeo é uma foto original da galeria do artista, não uma miniatura capturada do vídeo. Os botões abrem as plataformas oficiais em nova aba. `css/releases.css` estiliza os destaques.

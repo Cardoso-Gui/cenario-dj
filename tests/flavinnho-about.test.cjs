@@ -13,8 +13,8 @@ test('sobre: mantém biografia e modal consolidados', () => {
   assert.match(html, /<details class="story">/);
   assert.match(html, /assets\/flavinnho-sorrindo\.jpg/);
 });
-test('sobre: link discreto leva à página existente de mixes', () => {
-  assert.match(html, /<a class="about-mixes" href="\.\/mixes\.html">Ouça meus mixes/);
+test('sobre: link discreto leva à página existente de lançamentos', () => {
+  assert.match(html, /<a class="about-mixes" href="\.\/mixes\.html">Ouça meus lançamentos/);
   assert.match(css, /\.about-mixes:focus-visible\s*\{[^}]*outline:\s*2px solid #fff/);
   assert.match(css, /min-height:\s*44px/);
 });
