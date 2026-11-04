@@ -18,7 +18,7 @@ for (const file of pages) {
     assert.doesNotMatch(html, /eventos\.html|↗|modelo visual/);
     assert.match(html, /css\/theme\.css\?v=13/);
     assert.match(html, /css\/readability\.css\?v=1/);
-    assert.match(html, /css\/surfaces\.css\?v=1/);
+    assert.match(html, /css\/surfaces\.css\?v=2/);
     for (const match of html.matchAll(/href="(\.\/[^"?#]+\.html)(?:[?#][^"]*)?"/g)) {
       assert.ok(fs.existsSync(path.resolve(root, match[1])), `Destino existente: ${match[1]}`);
     }
@@ -42,4 +42,8 @@ test('o texto continua separado no celular e o retrato é descrito como ilustra�
   const home = read('flavinnho.html');
   assert.match(home, /MÚSICA QUE\s+<br>CONECTA PESSOAS/);
   assert.match(home, /alt="Ilustração de um DJ sorrindo, de óculos escuros e jaqueta"/);
+});
+
+test('o fundo do rodapé também cobre a home', () => {
+  assert.match(read('css/surfaces.css'), /footer,\s*\.page-inicio footer\s*\{/);
 });

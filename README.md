@@ -72,6 +72,12 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
   distinguidas dos arquivos originais ao escolher imagens.
 - `assets/sobre-atmosfera.jpg` foi gerado a partir da referência visual violeta,
   preservando composição, iluminação e fumaça e retirando a interface e os textos.
+- `assets/stage/header-lights.webp` e `assets/stage/footer-controller.webp` são
+  ilustrações decorativas geradas a partir do conceito aprovado de iluminação
+  e controladora. Somam aproximadamente 119 KB. Não representam equipamentos
+  confirmados do artista. `css/stage-effects.css` aplica as faixas somente às
+  cinco páginas do Flavinnho; os textos e links continuam em HTML, separados das
+  imagens, e as luzes não piscam nem se movem.
 - As fontes Inter, Barlow Condensed e Permanent Marker são carregadas do Google
   Fonts, com fontes alternativas declaradas no CSS.
 
