@@ -32,3 +32,56 @@
   outline: 2px solid #ce5cfc;
   outline-offset: 4px
 }
+
+
+/* A clearer primary action without changing the artist's visual identity. */
+.page-contato .contact .contact-whatsapp {
+  width: min(100%, 390px);
+  min-height: 64px;
+  padding: 18px 26px;
+  justify-content: center;
+  gap: 22px;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: .055em;
+  color: #fff;
+  background: linear-gradient(135deg, #a52be5, #7c15b2);
+  border-color: #d58aff;
+  box-shadow: 0 0 24px #b535ec38, inset 0 1px 0 #ffffff30;
+}
+.page-contato .contact .contact-whatsapp:hover {
+  background: linear-gradient(135deg, #9622d4, #7011a3);
+  box-shadow: 0 0 30px #b535ec52;
+}
+.page-contato .contact .contact-whatsapp:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 5px;
+}
+.page-contato .contact > p.contact-guidance {
+  max-width: 440px;
+  margin: 16px auto 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbbfd4;
+}
+.contact-guidance strong {
+  color: #f0e8f7;
+  font-weight: 600;
+}
+.page-contato .contact-call {
+  margin-top: 24px;
+}
+@media (max-width: 650px) {
+  .page-contato .contact .contact-whatsapp {
+    min-height: 62px;
+    padding: 16px 18px;
+    gap: 14px;
+    font-size: 14px;
+    letter-spacing: .025em;
+  }
+  .page-contato .contact > p.contact-guidance {
+    max-width: 320px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
