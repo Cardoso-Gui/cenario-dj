@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://cardoso-gui.github.io/cenario-dj/assets/cenario-social.png">
 <meta name="twitter:image:alt" content="Cenário DJ: Encontre DJs perto de você. Marca pin e disco entre luzes verdes e uma pista de dança.">
 <link rel="icon" type="image/svg+xml" href="assets/cenario-mark.svg"><link rel="stylesheet" href="css/cenario-home.css?v=20261104-contact">
-<link rel="stylesheet" href="css/visual-refinement.css?v=20261104-heading">
+<link rel="stylesheet" href="css/visual-refinement.css?v=20261104-heading-name">
 </head>
 <body>
 <a class="skip-link" href="#busca">Pular para a busca</a>
@@ -31,20 +31,20 @@
 <a class="brand" href="./" aria-label="Cenário DJ, início"><img src="assets/cenario-mark.svg" width="54" height="66" alt=""><span>CENÁRIO <b>DJ</b></span></a>
 <p class="brand-tagline">DJs do Brasil em um só lugar</p>
 <nav class="desktop-nav" aria-label="Navegação principal"><a class="active" href="#djs">Explorar DJs</a><a href="#busca" data-focus="estilo">Estilos musicais</a><a href="#busca" data-focus="estado">Cidades e regiões</a><a href="#sobre">Sobre</a></nav>
-<button id="open-search" class="icon-btn" aria-label="Buscar DJ pelo nome" aria-expanded="false" aria-controls="name-search"><svg><use href="#search-icon"/></svg></button>
+<button id="open-search" class="icon-btn" type="button" aria-label="Ir para busca por nome" aria-controls="nome"><svg><use href="#search-icon"/></svg></button>
 <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu"><span></span><span></span></button>
 </div><nav class="mobile-nav" id="mobile-nav" aria-label="Menu para celular" hidden><a href="#djs">Explorar DJs</a><a href="#busca" data-focus="estilo">Estilos musicais</a><a href="#busca" data-focus="estado">Cidades e regiões</a><a href="#sobre">Sobre o Cenário</a></nav></header>
 <main>
 <section class="hero" aria-labelledby="hero-title"><div class="hero-photo" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div><div class="wrap hero-copy"><p class="eyebrow hero-eyebrow"><span class="live-dot"></span> MÚSICA. PESSOAS. CONEXÕES.</p><h1 id="hero-title">Encontre o DJ certo<br>para cada <span>momento<svg viewBox="0 0 340 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14Q145 1 337 9M12 17Q170 7 316 9"/></svg></span></h1></div></section>
 <div class="wrap main-wrap">
 <form class="search-panel" id="busca" role="search" aria-label="Buscar DJs">
+<div id="name-search" class="name-search"><label class="sr-only" for="nome">Nome do DJ</label><div><svg aria-hidden="true"><use href="#search-icon"/></svg><input id="nome" name="nome" type="search" placeholder="Buscar DJ pelo nome" autocomplete="off" enterkeyhint="search"></div></div>
 <div class="filters">
 <div class="select-field"><svg class="field-icon"><use href="#pin-icon"/></svg><label class="sr-only" for="estado">Estado</label><select id="estado" name="estado"><option value="">Estado</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
 <div class="select-field"><svg class="field-icon"><use href="#map-icon"/></svg><label class="sr-only" for="regiao">Região metropolitana</label><select id="regiao" name="regiao" disabled aria-describedby="region-help"><option value="">Região</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
 <div class="select-field"><svg class="field-icon"><use href="#note-icon"/></svg><label class="sr-only" for="estilo">Estilo musical</label><select id="estilo" name="estilo"><option value="">Estilo musical</option><option>House</option><option>Tech House</option><option>Brazilian Bass</option><option>Eletrônica</option><option>Funk</option><option>Open Format</option><option>Pop</option><option>Sertanejo</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
 <button type="submit" class="search-btn"><svg><use href="#search-icon"/></svg>Buscar DJs</button>
 </div>
-<div id="name-search" class="name-search" hidden><label for="nome">Quem você quer encontrar?</label><div><svg><use href="#search-icon"/></svg><input id="nome" name="nome" type="search" placeholder="Digite o nome do DJ" autocomplete="off"></div></div>
 <p id="region-help" class="sr-only">Escolha um estado para ver suas regiões metropolitanas. Sem filtros, você vê todos os DJs.</p>
 </form>
 <div class="featured-toolbar"><span>DESTAQUE DO CENÁRIO</span></div>
@@ -62,5 +62,5 @@
 </div>
 </main>
 <footer><div class="wrap footer-inner"><a class="brand footer-brand" href="./"><img src="assets/cenario-mark.svg" width="32" height="40" alt=""><span>CENÁRIO <b>DJ</b></span></a><p>Conectando artistas e momentos.</p><span>© <span id="year">2026</span> Cenário DJ</span></div></footer>
-<script src="js/cenario-data.js?v=20261104"></script><script src="js/cenario-catalog.js?v=20261104"></script><script src="js/cenario-home.js?v=20261104-public-copy"></script>
+<script src="js/cenario-data.js?v=20261104"></script><script src="js/cenario-catalog.js?v=20261104"></script><script src="js/cenario-home.js?v=20261104-name-visible"></script>
 </body></html>

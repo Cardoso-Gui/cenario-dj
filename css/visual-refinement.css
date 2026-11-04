@@ -1,4 +1,4 @@
-/* Approved visual refinements. Base content and interaction scripts are unchanged. */
+/* Approved interface refinements. */
 .filter-help,
 .catalog-note,
 .catalog-details,
@@ -93,4 +93,14 @@
   .search-btn { min-height: 48px; white-space: nowrap; }
   .select-field { height: 48px; }
   .discover-aside h2 { font-size: 30px; }
+}
+
+/* Persistent name search follows the same rhythm as the filter controls. */
+.name-search { max-width: none; padding-top: 0; margin-bottom: 12px; }
+.name-search label.sr-only { margin: -1px; }
+.name-search input { height: 54px; border-radius: 12px; font-size: 16px; }
+.name-search input::placeholder { color: var(--muted); opacity: 1; }
+.name-search svg { left: 16px; top: 50%; transform: translateY(-50%); }
+@media (max-width: 600px) {
+  .name-search input { height: 48px; }
 }
