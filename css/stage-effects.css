@@ -28,6 +28,15 @@
 .header-cta {
   text-shadow: 0 1px 8px #000b;
 }
+/* Keep the active label distinct from the violet beam behind it. */
+.site-header nav a[aria-current="page"] {
+  color: #fff;
+  text-shadow: 0 1px 3px #000, 0 0 8px #000;
+}
+.site-header nav a[aria-current="page"]:after {
+  background: #d28aff;
+  box-shadow: 0 0 5px #b226ff55;
+}
 footer,
 .page-inicio footer {
   --footer-gutter: 6.5vw;

@@ -10,7 +10,7 @@ const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'cont
 for (const page of pages) {
   test(`${page}: cenário decorativo preserva conteúdo e navegação reais`, () => {
     const html = read(page);
-    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=2/g)].length, 1);
+    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=3/g)].length, 1);
     assert.ok(html.indexOf('css/stage-effects.css') > html.indexOf('css/readability.css'));
     assert.equal([...html.matchAll(/class="footer-console" aria-hidden="true"/g)].length, 1);
     assert.match(html, /<footer>[\s\S]*class="social-links"[\s\S]*class="footer-console"[\s\S]*<small>/);
@@ -51,4 +51,10 @@ test('rodapé compacto aproxima a controladora sem reduzir a fonte', () => {
   assert.match(css, /text-shadow:\s*0 1px 2px #000/);
   assert.match(css, /color:\s*#e4dced/);
   assert.doesNotMatch(css, /font-size/);
+});
+
+test('item atual tem texto claro independente do facho violeta', () => {
+  const css = read('css/stage-effects.css');
+  assert.match(css, /\.site-header nav a\[aria-current="page"\]\s*\{[^}]*color:\s*#fff;/);
+  assert.match(css, /\.site-header nav a\[aria-current="page"\]:after\s*\{[^}]*background:\s*#d28aff;/);
 });
