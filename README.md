@@ -22,20 +22,20 @@ mas o servidor local é preferível para conferir navegação e carregamento de 
 | `flavinnho.html` | Página inicial do Flavinnho, apresentação e chamadas para as páginas internas |
 | `sobre.html` | Biografia, conteúdo original da história e alternativa em `<details>` |
 | `mixes.html` | Links para Spotify e YouTube |
-| `fotos.html` | Fotos do carrossel e vídeos de aftermovies |
+| `fotos.html` | Mosaico de fotos e vídeos de aftermovies |
 | `contato.html` | WhatsApp e telefone |
 | `css/styles.css` | Estilos base, elementos compartilhados e responsividade |
 | `css/theme.css` | Identidade visual compartilhada e ajustes das páginas internas |
 | `css/surfaces.css` | Fundos roxos discretos das páginas, cabeçalho e rodapé |
 | `css/readability.css` | Tamanhos de leitura no desktop, carregados após os estilos específicos |
 | `css/home.css` | Estilos exclusivos da página inicial |
-| `css/gallery.css` | Carrossel, visualizador de fotos e aftermovies |
+| `css/gallery.css` | Mosaico, visualizador de fotos e aftermovies |
 | `css/story-modal.css` | Botão e diálogo da história |
 | `css/contact.css` | Bloco de ligação telefônica da página de contato |
 | `js/site.js` | Atualização do ano no rodapé |
-| `js/photo-gallery.js` | Carrossel, reprodução automática, arraste e visualizador de fotos |
+| `js/photo-gallery.js` | Visualizador de fotos com setas, teclado e retorno de foco |
 | `js/story-modal.js` | Aprimora a história expansível com um diálogo, quando suportado |
-| `js/video-gallery.js` | Pausa os outros vídeos quando um aftermovie começa a tocar |
+| `js/video-gallery.js` | Abre um vídeo por vez e interrompe a reprodução ao fechar |
 | `assets/` | Logo, ícone e imagens das páginas |
 | `assets/galeria/` | Imagens originais e versões utilizadas pela galeria |
 | `assets/videos/` | Vídeos MP4 e imagens de capa |
@@ -53,11 +53,13 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
 
 - **Foto:** adicione a imagem em `assets/galeria/` e um cartão `.photo-card` em
   `fotos.html`, mantendo o padrão existente. Confira `href`, `src`, dimensões,
-  texto alternativo, rótulo acessível e posição de enquadramento. Atualize também
-  o total inicial exibido em `.gallery-counter`; o JavaScript recalcula esse total.
+  texto alternativo e rótulo acessível. As miniaturas mantêm o formato original.
+  Atualize a numeração visível e as contagens nos atalhos e títulos da seção.
+  A ordem segue de cima para baixo em cada coluna e é a mesma no visualizador.
 - **Vídeo:** adicione o MP4 e a capa em `assets/videos/` e um `.aftermovie-card`
-  em `fotos.html`. Ajuste título, `poster`, `<source>`, link de abertura e rótulos.
-  A classe `.aftermovie-video--landscape` identifica o formato horizontal no celular.
+  em `fotos.html`. Ajuste o título, a imagem de capa, os dois links para o MP4,
+  `data-video-title` e os rótulos acessíveis. Atualize as contagens da seção.
+  O player é carregado somente após o clique; o link “Abrir vídeo” serve de alternativa.
 
 ## Conteúdo e origem dos recursos
 
@@ -85,7 +87,7 @@ páginas. Preserve `aria-current="page"` somente no link da página corresponden
 
 Compare as cinco páginas do Flavinnho em desktop e celular, incluindo cabeçalho, rodapé,
 textos, imagens e navegação. Confira também abertura/fechamento da história,
-carrossel e visualizador de fotos, teclado, preferência por movimento reduzido
+mosaico e visualizador de fotos, teclado, preferência por movimento reduzido
 e reprodução dos vídeos. Execute também `node --test tests/*.test.cjs` para conferir
 as regressões do catálogo e da navegação.
 

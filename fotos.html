@@ -12,10 +12,10 @@
     <link rel="preload" as="image" href="./assets/flavinnho-live.jpg?v=2">
     <link rel="stylesheet" href="./css/styles.css?v=3">
     <link rel="stylesheet" href="./css/theme.css?v=13">
-    <link rel="stylesheet" href="./css/gallery.css?v=5">
+    <link rel="stylesheet" href="./css/gallery.css?v=7">
     <script src="./js/site.js?v=4" defer></script>
-    <script src="./js/photo-gallery.js?v=3" defer></script>
-    <script src="./js/video-gallery.js?v=2" defer></script>
+    <script src="./js/photo-gallery.js?v=4" defer></script>
+    <script src="./js/video-gallery.js?v=3" defer></script>
     <link rel="stylesheet" href="./css/surfaces.css?v=2">
     <link rel="stylesheet" href="./css/readability.css?v=1">
     <link rel="stylesheet" href="./css/stage-effects.css?v=3">
@@ -38,17 +38,18 @@
       <h1 class="sr-only">Galeria de fotos e vídeos</h1>
       <section class="photos section" id="fotos" aria-labelledby="photos-title">
         <div class="gallery-heading">
-          <p class="eyebrow">PELA LENTE</p>
+          <div class="gallery-title-block"><p class="eyebrow">PELA LENTE</p>
           <h2 id="photos-title">SONS QUE VIRAM <em>HISTÓRIAS.</em></h2>
+          </div><div class="gallery-heading-details">
           <p class="gallery-intro">Cada palco, uma história. Cada foto, um pouco dessa energia.</p>
-        </div>
-        <div
-          class="photo-carousel"
-          role="region"
-          aria-roledescription="carrossel"
-          aria-label="Fotos do Flavinnho"
-        >
-          <div class="photo-deck">
+          <nav class="gallery-jumps" aria-label="Seções da galeria">
+            <a href="#fotos-grid">Fotos <span>11</span></a>
+            <a href="#videos">Vídeos <span>4</span></a>
+          </nav>
+        </div></div>
+        <div class="gallery-photos">
+          <h3 class="gallery-section-label" id="fotos-label">FOTOS <span>11 imagens</span></h3>
+          <div class="photo-grid" id="fotos-grid" tabindex="-1" aria-labelledby="fotos-label">
             <a
               class="photo-card"
               href="./assets/galeria/palco-azul-ia.webp"
@@ -60,7 +61,7 @@
                 width="1015"
                 height="1549"
                 loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">01</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -73,7 +74,7 @@
                 width="1526"
                 height="1030"
                 loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">02</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -86,7 +87,7 @@
                 width="1087"
                 height="1447"
                 loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">03</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -99,7 +100,7 @@
                 width="1015"
                 height="1550"
                 loading="lazy"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">04</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -112,7 +113,7 @@
                 width="1015"
                 height="1549"
                 loading="lazy"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">05</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -125,7 +126,7 @@
                 width="603"
                 height="920"
                 loading="lazy"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">06</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -138,7 +139,7 @@
                 width="1089"
                 height="1444"
                 loading="lazy"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">07</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -151,7 +152,7 @@
                 width="1436"
                 height="1095"
                 loading="lazy"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">08</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -163,8 +164,8 @@
                 alt="Flavinnho tocando em uma controladora Pioneer DJ"
                 width="1086"
                 height="1448"
-                loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                loading="lazy"
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">09</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -176,8 +177,8 @@
                 alt="Retrato estilizado de Flavinnho com jaqueta de couro em frente à controladora"
                 width="1101"
                 height="1429"
-                loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                loading="lazy"
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">10</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
             <a
               class="photo-card"
@@ -189,55 +190,32 @@
                 alt="Flavinnho sorrindo no palco iluminado de azul"
                 width="1086"
                 height="1448"
-                loading="eager"
-                draggable="false"><span class="photo-card-hint" aria-hidden="true">VER FOTO <span><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
+                loading="lazy"
+                draggable="false"><span class="photo-card-hint" aria-hidden="true"><span class="photo-number">11</span> <span class="photo-expand"><svg class="icon-arrow-up-right" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></span></a
             >
           </div>
-          <div class="gallery-controls" hidden>
-            <button
-              type="button"
-              class="gallery-arrow"
-              data-direction="-1"
-              aria-label="Foto anterior"
-            >
-              ←</button
-            ><span class="gallery-counter" aria-hidden="true">01 <span>/ 11</span></span
-            ><button
-              type="button"
-              class="gallery-arrow"
-              data-direction="1"
-              aria-label="Próxima foto"
-            >
-              →</button
-            ><button type="button" class="gallery-play" aria-label="Pausar passagem automática">
-              PAUSAR <span aria-hidden="true">Ⅱ</span>
-            </button>
-          </div>
-
-          <p class="gallery-status sr-only" aria-live="polite" aria-atomic="true"></p>
         </div>
-        <dialog class="photo-viewer" aria-label="Foto ampliada">
-          <button type="button" class="viewer-close" aria-label="Fechar foto" autofocus>×</button
-          ><img alt="">
+        <dialog class="photo-viewer" aria-labelledby="photo-viewer-title">
+          <div class="viewer-header"><h2 id="photo-viewer-title">Fotos</h2><button type="button" class="viewer-close" aria-label="Fechar foto" autofocus>×</button></div>
+          <div class="viewer-media"><img alt=""></div>
+          <div class="viewer-controls">
+            <button type="button" class="viewer-arrow" data-direction="-1" aria-label="Foto anterior"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></button>
+            <p class="viewer-counter" aria-live="polite" aria-atomic="true">Foto 1 de 11</p>
+            <button type="button" class="viewer-arrow" data-direction="1" aria-label="Próxima foto"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></svg></button>
+          </div>
         </dialog>
       </section>
-      <section class="aftermovies section" aria-labelledby="aftermovies-title">
-        <p class="eyebrow">DÊ O PLAY</p>
-        <h2 id="aftermovies-title">SINTA A <em>ENERGIA.</em></h2>
-        <p class="aftermovies-intro">Um pouco do que acontece quando a música encontra a pista.</p>
+      <section class="aftermovies section" id="videos" tabindex="-1" aria-labelledby="aftermovies-title">
+        <div class="aftermovies-heading"><div><p class="eyebrow">DÊ O PLAY</p>
+        <h2 id="aftermovies-title">SINTA A <em>ENERGIA.</em></h2></div>
+        <p class="aftermovies-intro">Um pouco do que acontece quando a música encontra a pista.</p></div>
+        <p class="gallery-section-label">VÍDEOS <span>4 aftermovies</span></p>
         <div class="aftermovie-grid">
           <article class="aftermovie-card">
-            <video
-              class="aftermovie-video aftermovie-video--landscape"
-              controls
-              playsinline
-              preload="none"
-              poster="./assets/videos/oficial-jk.jpg"
-              aria-label="Aftermovie — Oficial JK"
-            >
-              <source src="./assets/videos/oficial-jk.mp4" type="video/mp4">
-              Seu navegador não suporta este vídeo.
-            </video>
+            <a class="video-preview" href="./assets/videos/oficial-jk.mp4" aria-label="Assistir vídeo Oficial JK" data-video-title="Oficial JK">
+              <img src="./assets/videos/oficial-jk.jpg" alt="" loading="lazy" width="800" height="450">
+              <span class="video-play"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg><span>ASSISTIR VÍDEO</span></span>
+            </a>
             <div class="aftermovie-info">
               <p>AFTERMOVIE</p>
               <h3>Oficial JK</h3>
@@ -251,17 +229,10 @@
             </div>
           </article>
           <article class="aftermovie-card">
-            <video
-              class="aftermovie-video"
-              controls
-              playsinline
-              preload="none"
-              poster="./assets/videos/afterfunk.jpg"
-              aria-label="Aftermovie — AfterFunk"
-            >
-              <source src="./assets/videos/afterfunk.mp4" type="video/mp4">
-              Seu navegador não suporta este vídeo.
-            </video>
+            <a class="video-preview" href="./assets/videos/afterfunk.mp4" aria-label="Assistir vídeo AfterFunk" data-video-title="AfterFunk">
+              <img src="./assets/videos/afterfunk.jpg" alt="" loading="lazy" width="800" height="450">
+              <span class="video-play"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg><span>ASSISTIR VÍDEO</span></span>
+            </a>
             <div class="aftermovie-info">
               <p>AFTERMOVIE</p>
               <h3>AfterFunk</h3>
@@ -275,17 +246,10 @@
             </div>
           </article>
           <article class="aftermovie-card">
-            <video
-              class="aftermovie-video"
-              controls
-              playsinline
-              preload="none"
-              poster="./assets/videos/carnavrau.jpg"
-              aria-label="Aftermovie — Carnavrau"
-            >
-              <source src="./assets/videos/carnavrau.mp4" type="video/mp4">
-              Seu navegador não suporta este vídeo.
-            </video>
+            <a class="video-preview" href="./assets/videos/carnavrau.mp4" aria-label="Assistir vídeo Carnavrau" data-video-title="Carnavrau">
+              <img src="./assets/videos/carnavrau.jpg" alt="" loading="lazy" width="800" height="450">
+              <span class="video-play"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg><span>ASSISTIR VÍDEO</span></span>
+            </a>
             <div class="aftermovie-info">
               <p>AFTERMOVIE</p>
               <h3>Carnavrau</h3>
@@ -299,17 +263,10 @@
             </div>
           </article>
           <article class="aftermovie-card">
-            <video
-              class="aftermovie-video"
-              controls
-              playsinline
-              preload="none"
-              poster="./assets/videos/urupes.jpg"
-              aria-label="Aftermovie — Formatura em Urupês"
-            >
-              <source src="./assets/videos/urupes.mp4" type="video/mp4">
-              Seu navegador não suporta este vídeo.
-            </video>
+            <a class="video-preview" href="./assets/videos/urupes.mp4" aria-label="Assistir vídeo Formatura em Urupês" data-video-title="Formatura em Urupês">
+              <img src="./assets/videos/urupes.jpg" alt="" loading="lazy" width="800" height="450">
+              <span class="video-play"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg><span>ASSISTIR VÍDEO</span></span>
+            </a>
             <div class="aftermovie-info">
               <p>AFTERMOVIE</p>
               <h3>Formatura em Urupês</h3>
@@ -324,6 +281,11 @@
           </article>
         </div>
       </section>
+      <dialog class="video-viewer" aria-labelledby="video-viewer-title">
+        <div class="viewer-header"><h2 id="video-viewer-title">Vídeo</h2><button type="button" class="video-close" aria-label="Fechar vídeo" autofocus>×</button></div>
+        <video class="viewer-video" controls playsinline preload="none"></video>
+        <p class="video-status" role="status"></p>
+      </dialog>
     </main>
     <footer>
       <a class="wordmark" href="./flavinnho.html" aria-label="Flavinnho — voltar ao início"
