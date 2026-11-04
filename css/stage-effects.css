@@ -20,7 +20,8 @@
   height: calc(var(--header) + 50px);
   z-index: -1;
   pointer-events: none;
-  background: url('../assets/stage/header-lights.webp') center top / 100% auto no-repeat;
+  /* Crop the truss above the viewport while keeping the lamps and beams. */
+  background: url('../assets/stage/header-lights.webp') center -3.8vw / 100% auto no-repeat;
   mask-image: linear-gradient(#000 0 55%, transparent 100%);
   -webkit-mask-image: linear-gradient(#000 0 55%, transparent 100%);
 }
@@ -86,6 +87,7 @@ footer small {
   }
   .site-header:after {
     background-size: auto 290px;
+    background-position: center -33px;
   }
 }
 @media (max-width: 650px) {
@@ -100,6 +102,7 @@ footer small {
   }
   .site-header:after {
     background-size: auto 260px;
+    background-position: center -30px;
   }
   footer,
   .page-inicio footer {
