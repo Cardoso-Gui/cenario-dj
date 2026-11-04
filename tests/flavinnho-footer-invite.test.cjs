@@ -27,11 +27,13 @@ for (const page of pages) {
     assert.match(link, /rel="noopener noreferrer"/);
     assert.match(link, /aria-label="Quero meu site: conversar com Gui pelo WhatsApp \(nova aba\)"/);
     assert.doesNotMatch(link, /onclick=|download=|javascript:/i);
+    assert.equal((footer.match(/class="footer-bottom"/g) || []).length, 1);
+    assert.match(footer, /class="footer-bottom">\s*<small>[\s\S]*?<\/small>\s*<div class="footer-invite">/);
     assert.match(footer, /class="social-links"[\s\S]*class="footer-console"[\s\S]*<small>[\s\S]*class="footer-invite"/);
     for (const destination of ['https://www.instagram.com/flavinnhodj/', 'https://www.youtube.com/@flavinnhodj/featured', 'https://open.spotify.com/intl-pt/artist/23kYeZykGN0EkOd29kArq4']) {
       assert.ok(footer.includes(`href="${destination}"`));
     }
-    assert.equal((html.match(/css\/footer-invite\.css\?v=2/g) || []).length, 1);
+    assert.equal((html.match(/css\/footer-invite\.css\?v=3/g) || []).length, 1);
     assert.ok(html.indexOf('css/footer-invite.css') > html.indexOf('css/stage-effects.css'));
   });
 }
@@ -51,7 +53,7 @@ test('convite: estilo isolado não alcança identidade ou home do Cenário', () 
   assert.doesNotMatch(read('index.html'), /footer-invite\.css|class="footer-invite"/);
   assert.doesNotMatch(css, /\.site-header|\.footer-console|\.social-links|\.page-inicio|:root/);
   const selectors = [...css.matchAll(/(?:^|\})\s*([^{}]+)\{/g)].map(match => match[1]);
-  assert.ok(selectors.every(selector => selector.startsWith('footer .footer-invite') || selector.startsWith('@media') || selector.startsWith('/*')));
+  assert.ok(selectors.every(selector => selector.startsWith('footer .footer-invite') || selector.startsWith('footer .footer-bottom') || selector.startsWith('@media') || selector.startsWith('/*')));
 });
 
 test('convite: contato para sites é separado da contratação do artista', () => {
@@ -65,5 +67,19 @@ test('convite: frase e botão ficam próximos no desktop', () => {
   const css = read('css/footer-invite.css');
   assert.match(css, /footer \.footer-invite\s*\{[^}]*justify-content:\s*flex-start/);
   assert.match(css, /footer \.footer-invite\s*\{[^}]*gap:\s*10px 24px/);
-  assert.doesNotMatch(css, /justify-content:\s*space-between/);
+  assert.doesNotMatch(css, /footer \.footer-invite\s*\{[^}]*justify-content:\s*space-between/);
+});
+
+test('convite: compartilha a linha do copyright à direita e empilha em telas pequenas', () => {
+  const css = read('css/footer-invite.css');
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*grid-column:\s*1 \/ -1/);
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*display:\s*flex/);
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*position:\s*relative/);
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*z-index:\s*1/);
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*align-items:\s*center/);
+  assert.match(css, /footer \.footer-bottom\s*\{[^}]*justify-content:\s*space-between/);
+  assert.match(css, /footer \.footer-invite\s*\{[^}]*margin-left:\s*auto/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*footer \.footer-bottom\s*\{[^}]*flex-direction:\s*column/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*footer \.footer-invite\s*\{[^}]*margin-left:\s*0/);
+  assert.doesNotMatch(css, /border-top:|padding-top:|margin-top:/);
 });
