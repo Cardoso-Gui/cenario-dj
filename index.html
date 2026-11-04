@@ -1,55 +1,44 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#070b17">
-<meta name="description" content="Cenário DJ — O artista certo para o seu evento. Descubra DJs com sites profissionais criados pelo Cenário DJ.">
-<title>Cenário DJ | O artista certo para o seu evento</title>
-<link rel="icon" href="./assets/cenario-favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./css/cenario.css?v=3">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#090b09"><meta name="description" content="Explore DJs com sites criados pelo Cenário DJ. Uma nova conexão começa aqui.">
+<title>Cenário DJ · Encontre o DJ certo</title>
+<link rel="icon" type="image/svg+xml" href="assets/cenario-mark.svg"><link rel="stylesheet" href="css/cenario-home.css?v=20261104">
 </head>
 <body>
-<header class="header"><div class="wrap nav">
-<a class="wordmark" href="./index.html" aria-label="Cenário DJ, início">
-<svg class="logo-icon" viewBox="0 0 64 64" role="img" aria-label="Ícone Cenário DJ"><defs><linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6b1ff"/><stop offset="1" stop-color="#942bff"/></linearGradient></defs><path d="M48 13a26 26 0 1 0 1 38" stroke="url(#p)" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M10 32v-7a22 22 0 0 1 44 0v7" fill="none" stroke="#b65aff" stroke-width="3"/><rect x="4" y="27" width="9" height="17" rx="4" fill="#39ff88"/><rect x="51" y="27" width="9" height="17" rx="4" fill="#39ff88"/><path d="M23 32v5m6-12v19m6-24v27m6-17v9" stroke="#39ff88" stroke-width="4" stroke-linecap="round"/></svg>
-<span>CENÁRIO <b>DJ</b></span>
-</a>
-<nav class="nav-links" aria-label="Menu principal"><a class="current" href="#inicio" aria-current="page">Início</a><a href="#djs">DJs</a><a class="hide-md" href="#como-funciona">Sobre o projeto</a><a class="hide-md" href="#para-djs">Criação de sites</a><a class="hide-md" href="#para-djs">Contato</a></nav>
-<a href="#para-djs" class="nav-action">♫ &nbsp;Sou DJ, quero meu site</a>
-</div></header>
+<a class="skip-link" href="#busca">Pular para a busca</a>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="search-icon" viewBox="0 0 24 24"><circle cx="10.6" cy="10.6" r="7.1"/><path d="m16 16 5 5"/></symbol><symbol id="pin-icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="map-icon" viewBox="0 0 24 24"><path d="m3 5 6-3 6 3 6-3v17l-6 3-6-3-6 3zm6-3v17m6-14v17"/></symbol><symbol id="note-icon" viewBox="0 0 24 24"><path d="M9 17V5l11-3v12M9 8l11-3"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="15" rx="3" ry="2.5"/></symbol><symbol id="arrow-icon" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol><symbol id="chevron-icon" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol></svg>
+<header class="header"><div class="nav-shell">
+<a class="brand" href="./" aria-label="Cenário DJ, início"><img src="assets/cenario-mark.svg" width="54" height="66" alt=""><span>CENÁRIO <b>DJ</b></span></a>
+<p class="brand-tagline">DJs do Brasil em um só lugar</p>
+<nav class="desktop-nav" aria-label="Navegação principal"><a class="active" href="#djs">Explorar DJs</a><a href="#busca" data-focus="estilo">Estilos musicais</a><a href="#busca" data-focus="estado">Cidades e regiões</a><a href="#sobre">Sobre</a></nav>
+<button id="open-search" class="icon-btn" aria-label="Buscar DJ pelo nome" aria-expanded="false" aria-controls="name-search"><svg><use href="#search-icon"/></svg></button>
+<button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu"><span></span><span></span></button>
+</div><nav class="mobile-nav" id="mobile-nav" aria-label="Menu para celular" hidden><a href="#djs">Explorar DJs</a><a href="#busca" data-focus="estilo">Estilos musicais</a><a href="#busca" data-focus="estado">Cidades e regiões</a><a href="#sobre">Sobre o Cenário</a></nav></header>
 <main>
-<section class="hero" id="inicio"><div class="wrap">
-<div class="mini-equalizer" aria-hidden="true"><i style="--h:9px"></i><i style="--h:15px"></i><i style="--h:23px"></i><i style="--h:13px"></i><i style="--h:7px"></i></div>
-<h1>Cenário <span>DJ</span></h1><p class="tagline">O artista certo para o <strong>seu evento.</strong></p>
-<form id="search" class="search-panel" role="search" aria-label="Filtrar DJs">
-<div class="field"><label for="city">⌖ &nbsp;Cidade ou região</label><input id="city" name="cidade" placeholder="Digite uma cidade" autocomplete="address-level2"></div>
-<div class="field"><label for="style">♫ &nbsp;Estilo musical</label><select id="style" name="estilo"><option value="">Todos os estilos</option><option value="funk">Funk</option><option value="eletronica">Eletrônica</option><option value="house">House</option><option value="open format">Open Format</option><option value="sertanejo">Sertanejo</option><option value="pop">Pop</option></select></div>
-<div class="field"><label for="event">▣ &nbsp;Tipo de evento</label><select id="event" name="evento"><option value="">Todos os eventos</option><option value="casamento">Casamento</option><option value="aniversario">Aniversário</option><option value="formatura">Formatura</option><option value="balada">Festa e balada</option><option value="corporativo">Evento corporativo</option></select></div>
-<button type="submit" class="search-btn">⌕ &nbsp;Buscar DJs</button>
-</form></div></section>
-<div class="wrap perks"><span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>Artistas do catálogo</span><span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m12 2 3 7 7 .7-5.4 5 1.6 7.3L12 18l-6.2 4 1.6-7.3-5.4-5L9 9z"/></svg>Sites profissionais</span><span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18"/></svg>Para seu evento</span></div>
-<section class="section" id="djs"><div class="wrap"><div class="sec-title"><h2>DJs em destaque</h2><a href="#djs" class="all-link" id="show-all">Ver todos os DJs &nbsp; →</a></div>
-<div class="cards" id="cards">
-<article class="dj-card" data-city="" data-style="" data-event=""><div class="dj-img" role="img" aria-label="Foto de divulgação de DJ Flavinnho"></div><div class="dj-data"><h3>DJ Flavinnho <span class="verified" title="Site criado pelo Cenário DJ">✦</span></h3><p>Conheça o artista e sua identidade musical.</p><div class="chips"><span>Site exclusivo</span><span>Press kit</span></div><a href="./flavinnho.html">Ver site do DJ ↗</a></div></article>
-<div class="soon" aria-label="Espaço para futuros artistas"><div><div class="icon">✧</div><h3>Novos artistas em breve</h3><p>Mais sites personalizados chegando ao catálogo.</p></div></div>
-<div class="soon" aria-label="Espaço para futuros artistas"><div><div class="icon">♫</div><h3>Seu nome aqui?</h3><p>Seu próximo site pode fazer parte do Cenário DJ.</p></div></div>
-</div><p id="empty" class="empty" role="status" hidden>Nenhum DJ com esses filtros por enquanto. Experimente limpar a busca. Os detalhes de cidades, repertórios e eventos serão cadastrados conforme cada DJ confirmar suas informações.</p>
-<p class="results-note"><span id="count">1</span> DJ no catálogo. As cidades, os estilos e os tipos de evento serão disponibilizados após confirmação pelos artistas.</p>
-</div></section>
-<section class="how" id="como-funciona"><div class="wrap"><h2>Como funciona o Cenário DJ</h2><div class="steps">
-<div class="step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h3>Busque por região</h3><p>Encontre DJs do catálogo na sua cidade ou região, conforme a base cresce.</p></div></div>
-<div class="step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M8 22h8m-4-4v4"/></svg><div><h3>Perfis personalizados</h3><p>Cada artista apresenta um site próprio, com identidade visual exclusiva.</p></div></div>
-<div class="step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 11a8 8 0 0 1-8 8 8 8 0 0 1-4-.9L3 20l1.9-5A8 8 0 1 1 20 11Z"/><path d="M8 11h8"/></svg><div><h3>Contato facilitado</h3><p>Entre em contato com o DJ pelos canais informados no site dele.</p></div></div>
-</div></div></section>
-<section class="cta-area" id="para-djs"><div class="wrap"><div class="cta"><div><h2>Você é <em>DJ?</em></h2><p>Tenha seu próprio site profissional, fortaleça sua marca e faça parte do Cenário DJ, uma vitrine exclusiva de artistas com sites desenvolvidos pela plataforma.</p></div><a class="cta-btn" href="mailto:?subject=Quero%20um%20site%20no%20Cen%C3%A1rio%20DJ&body=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site%20para%20DJ.">Quero meu site agora &nbsp; ↗</a></div></div></section>
+<section class="hero" aria-labelledby="hero-title"><div class="hero-photo" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div><div class="wrap hero-copy"><p class="eyebrow hero-eyebrow"><span class="live-dot"></span> MÚSICA. PESSOAS. CONEXÕES.</p><h1 id="hero-title">Encontre o DJ certo<br>para cada <span>momento<svg viewBox="0 0 340 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14Q145 1 337 9M12 17Q170 7 316 9"/></svg></span></h1></div></section>
+<div class="wrap main-wrap">
+<form class="search-panel" id="busca" role="search" aria-label="Buscar DJs">
+<div class="filters">
+<div class="select-field"><svg class="field-icon"><use href="#pin-icon"/></svg><label class="sr-only" for="estado">Estado</label><select id="estado" name="estado"><option value="">Estado</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
+<div class="select-field"><svg class="field-icon"><use href="#map-icon"/></svg><label class="sr-only" for="regiao">Região metropolitana</label><select id="regiao" name="regiao" disabled aria-describedby="region-help"><option value="">Região</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
+<div class="select-field"><svg class="field-icon"><use href="#note-icon"/></svg><label class="sr-only" for="estilo">Estilo musical</label><select id="estilo" name="estilo"><option value="">Estilo musical</option><option>House</option><option>Tech House</option><option>Brazilian Bass</option><option>Eletrônica</option><option>Funk</option><option>Open Format</option><option>Pop</option><option>Sertanejo</option></select><svg class="chevron"><use href="#chevron-icon"/></svg></div>
+<button type="submit" class="search-btn"><svg><use href="#search-icon"/></svg>Buscar DJs</button>
+</div>
+<div id="name-search" class="name-search" hidden><label for="nome">Quem você quer encontrar?</label><div><svg><use href="#search-icon"/></svg><input id="nome" name="nome" type="search" placeholder="Digite o nome do DJ" autocomplete="off"></div></div>
+<p id="region-help" class="filter-help">Escolha um estado para ver suas regiões metropolitanas. Sem filtros, você vê todos os DJs.</p>
+</form>
+<div class="featured-toolbar"><span>DESTAQUE DO CENÁRIO</span><span>Seleção fixa, independente dos filtros</span></div>
+<section class="discover-grid" id="destaque" aria-label="DJ em destaque">
+<div id="results"></div>
+<aside class="discover-aside"><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h2>Descubra<br> novos DJs</h2><p>Explore os artistas, conheça seus trabalhos e encontre os nomes do cenário brasileiro.</p><a class="circle-link" href="#sobre" aria-label="Conheça o Cenário DJ"><svg><use href="#arrow-icon"/></svg></a></aside>
+</section>
+<section class="more-catalog" id="djs" aria-labelledby="more-title" tabindex="-1"><div class="more-heading"><h2 id="more-title">Explore o catálogo</h2><p>Encontre seu próximo som</p></div><div class="results-toolbar"><p id="result-count" role="status" aria-live="polite">1 DJ no catálogo</p><button id="clear-filters" class="text-btn" type="button" hidden>Limpar filtros <span aria-hidden="true">×</span></button><span class="catalog-badge">CATÁLOGO</span></div><div class="catalog-grid" id="catalog-grid"></div></section>
+<p class="catalog-note">O catálogo está crescendo. Novos artistas com sites próprios chegam em breve ao Cenário DJ.</p>
+<section class="about" id="sobre"><div><p class="eyebrow">CONHEÇA O CENÁRIO</p><h2>Uma vitrine.<br>Muitas identidades.</h2></div><div class="about-copy"><p>O Cenário DJ reúne artistas com sites criados por Gui. Cada perfil abre uma experiência própria, com a música, a história e os canais de contato do DJ.</p><p>Aqui, você encontra. No site do artista, você se conecta.</p><a href="#busca" class="text-link">Explore o catálogo <svg><use href="#arrow-icon"/></svg></a></div></section>
+<details class="catalog-details"><summary>Sobre o catálogo e os filtros</summary><div><p>O catálogo reúne artistas com sites criados pelo Cenário DJ. O destaque é uma seleção fixa e independente da busca. Sem filtros, todos os artistas cadastrados aparecem na grade de resultados.</p><p id="coverage-note"></p><p>A foto do Flavinnho faz parte da galeria original do artista. O fundo da capa é uma imagem ilustrativa.</p><p><a href="https://www.ibge.gov.br/geociencias/organizacao-do-territorio/estrutura-territorial/18354-regioes-metropolitanas-aglomeracoes-urbanas-e-regioes-integradas-de-desenvolvimento.html" target="_blank" rel="noopener noreferrer">Regiões metropolitanas: fonte IBGE ↗</a></p></div></details>
+</div>
 </main>
-<footer class="footer"><div class="wrap"><span><strong>CENÁRIO DJ</strong> &nbsp; | &nbsp; O portal dos DJs com sites profissionais.</span><span>© <span id="year"></span> Cenário DJ</span></div></footer>
-<script>
-const cards=[...document.querySelectorAll('.dj-card')],form=document.querySelector('#search'),empty=document.querySelector('#empty'),count=document.querySelector('#count'),slots=[...document.querySelectorAll('.soon')];
-const clean=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
-function filterDjs(){const city=clean(document.querySelector('#city').value),style=clean(document.querySelector('#style').value),event=clean(document.querySelector('#event').value);let shown=0;cards.forEach(card=>{const ok=(!city||clean(card.dataset.city).includes(city))&&(!style||clean(card.dataset.style).split('|').includes(style))&&(!event||clean(card.dataset.event).split('|').includes(event));card.hidden=!ok;if(ok)shown++});slots.forEach(s=>s.hidden=!!(city||style||event));empty.hidden=shown!==0;count.textContent=String(shown);document.querySelector('#djs').scrollIntoView({behavior:'smooth'});}
-form.addEventListener('submit',e=>{e.preventDefault();filterDjs()});
-document.querySelector('#show-all').addEventListener('click',e=>{e.preventDefault();form.reset();filterDjs()});
-document.querySelector('#year').textContent=new Date().getFullYear();
-</script>
+<footer><div class="wrap footer-inner"><a class="brand footer-brand" href="./"><img src="assets/cenario-mark.svg" width="32" height="40" alt=""><span>CENÁRIO <b>DJ</b></span></a><p>Conectando artistas e momentos.</p><span>© <span id="year">2026</span> Cenário DJ</span></div></footer>
+<script src="js/cenario-data.js?v=20261104"></script><script src="js/cenario-catalog.js?v=20261104"></script><script src="js/cenario-home.js?v=20261104"></script>
 </body></html>

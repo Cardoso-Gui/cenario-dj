@@ -89,3 +89,17 @@ https://cardoso-gui.github.io/flavinnho-site/
 
 O arquivo `.nojekyll` mantém a publicação dos arquivos estáticos sem processamento
 pelo Jekyll. Após publicar, confira a execução de deploy e o site resultante.
+
+
+## Home Cenário DJ
+
+A home `index.html` usa a identidade verde do Cenário, com o Flavinnho fixo em destaque e uma grade filtrável por estado, região metropolitana e estilo. As páginas individuais do Flavinnho e seus recursos continuam independentes.
+
+- `css/cenario-home.css`: layout responsivo da home.
+- `js/cenario-data.js`: artistas reais e base de regiões metropolitanas IBGE 2025, corrigida em 29/07/2026.
+- `js/cenario-catalog.js`: lógica pura dos filtros e destaque.
+- `js/cenario-home.js`: interface, busca por nome, opções dependentes e menu móvel.
+- `assets/cenario-mark.svg`: marca pin/disco do Cenário DJ.
+- `tests/cenario-catalog.test.cjs`: testes, executáveis com `node --test tests/cenario-catalog.test.cjs`.
+
+A versão pública contém apenas artistas reais. Os perfis fictícios da prévia não fazem parte deste catálogo. A foto do Flavinnho usa `assets/galeria/na-controladora.webp`; o fundo usa o recurso ilustrativo já existente `assets/home-publico.jpg`.
