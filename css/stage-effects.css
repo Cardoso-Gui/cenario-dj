@@ -1,11 +1,11 @@
 /* Decorative stage artwork stays separate from the functional navigation. */
 :root {
-  --header: clamp(136px, 11vw, 200px);
+  --header: clamp(112px, 8vw, 144px);
 }
 .site-header,
 .page-inicio .site-header {
   height: var(--header);
-  padding-top: clamp(48px, 5.5vw, 100px);
+  padding-top: clamp(40px, 3vw, 56px);
   padding-bottom: 8px;
 }
 .site-header:before {
@@ -79,11 +79,11 @@ footer small {
 }
 @media (max-width: 800px) {
   :root {
-    --header: 132px;
+    --header: 112px;
   }
   .site-header,
   .page-inicio .site-header {
-    padding-top: 48px;
+    padding-top: 36px;
   }
   .site-header:after {
     background-size: auto 290px;
@@ -92,11 +92,11 @@ footer small {
 }
 @media (max-width: 650px) {
   :root {
-    --header: 150px;
+    --header: 132px;
   }
   .site-header,
   .page-inicio .site-header {
-    padding-top: 43px;
+    padding-top: 32px;
     padding-bottom: 8px;
     gap: 6px;
   }

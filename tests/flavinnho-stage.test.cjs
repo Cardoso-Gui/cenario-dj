@@ -10,7 +10,7 @@ const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'cont
 for (const page of pages) {
   test(`${page}: cenário decorativo preserva conteúdo e navegação reais`, () => {
     const html = read(page);
-    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=4/g)].length, 1);
+    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=5/g)].length, 1);
     assert.ok(html.indexOf('css/stage-effects.css') > html.indexOf('css/readability.css'));
     assert.equal([...html.matchAll(/class="footer-console" aria-hidden="true"/g)].length, 1);
     assert.match(html, /<footer>[\s\S]*class="social-links"[\s\S]*class="footer-console"[\s\S]*<small>/);
@@ -60,16 +60,27 @@ test('item atual tem texto claro independente do facho violeta', () => {
 });
 
 
-test('cabeçalho eleva somente a arte para ocultar a treliça em cada escala', () => {
+test('cabeçalho compacto preserva o recorte das luzes em cada escala', () => {
   const css = read('css/stage-effects.css');
   assert.match(css, /background: url\('\.\.\/assets\/stage\/header-lights\.webp'\) center -3\.8vw \/ 100% auto no-repeat;/);
   assert.match(css, /@media \(max-width: 800px\)[\s\S]*background-size: auto 290px;\s*background-position: center -33px;/);
   assert.match(css, /@media \(max-width: 650px\)[\s\S]*background-size: auto 260px;\s*background-position: center -30px;/);
-  assert.match(css, /--header: clamp\(136px, 11vw, 200px\)/);
+  assert.match(css, /--header: clamp\(112px, 8vw, 144px\)/);
   assert.match(css, /height: calc\(var\(--header\) \+ 50px\)/);
   // The image is 2172 × 724. Its truss ends at source y=80;
   // cropping less than y=85 retains the lamp bodies and all light lenses.
   for (const crop of [2172 * 0.038, 33 * 724 / 290, 30 * 724 / 260]) {
     assert.ok(crop > 80 && crop < 85, `Source crop: ${crop}`);
   }
+});
+
+
+test('menu fica próximo das luzes sem diminuir os alvos e as compensações', () => {
+  const css = read('css/stage-effects.css');
+  assert.match(css, /padding-top: clamp\(40px, 3vw, 56px\)/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*--header: 112px;[\s\S]*padding-top: 36px;/);
+  assert.match(css, /@media \(max-width: 650px\)[\s\S]*--header: 132px;[\s\S]*padding-top: 32px;/);
+  assert.match(read('css/styles.css'), /scroll-padding-top: var\(--header\)/);
+  assert.match(read('css/theme.css'), /padding-top: calc\(var\(--header\) \+ 65px\)/);
+  assert.match(read('css/theme.css'), /min-height: 44px;/);
 });
