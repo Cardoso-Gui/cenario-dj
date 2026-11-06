@@ -44,9 +44,9 @@ footer,
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-top: 32px;
-  padding-bottom: 18px;
-  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  gap: 8px;
   background: radial-gradient(ellipse at 50% 80%, #36104959, transparent 75%), #07030e;
   border-top: 1px solid #ba40ffb3;
   box-shadow: 0 -1px 18px #a62bed42;
@@ -65,7 +65,8 @@ footer .social-links a {
 .footer-console {
   grid-column: 1 / -1;
   height: clamp(100px, 14vw, 235px);
-  margin: 0 calc(-1 * var(--footer-gutter)) -36px;
+  /* Reclaim only the dark base below the deck; keep its artwork and height intact. */
+  margin: 0 calc(-1 * var(--footer-gutter)) calc(-1 * clamp(24px, 4vw, 64px));
   pointer-events: none;
   background: url('../assets/stage/footer-controller.webp') center bottom / 100% auto no-repeat;
   mask-image: linear-gradient(transparent, #000 18% 88%, transparent);
@@ -107,8 +108,8 @@ footer small {
   footer,
   .page-inicio footer {
     --footer-gutter: 6vw;
-    padding-top: 32px;
-    gap: 14px;
+    padding-top: 20px;
+    gap: 8px;
   }
   footer .social-links {
     margin-bottom: -8px;

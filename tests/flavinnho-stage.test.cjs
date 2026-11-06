@@ -10,7 +10,7 @@ const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'cont
 for (const page of pages) {
   test(`${page}: cenário decorativo preserva conteúdo e navegação reais`, () => {
     const html = read(page);
-    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=5/g)].length, 1);
+    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=6/g)].length, 1);
     assert.ok(html.indexOf('css/stage-effects.css') > html.indexOf('css/readability.css'));
     assert.equal([...html.matchAll(/class="footer-console" aria-hidden="true"/g)].length, 1);
     assert.match(html, /<footer>[\s\S]*class="social-links"[\s\S]*class="footer-console"[\s\S]*<small>/);
@@ -83,4 +83,22 @@ test('menu fica próximo das luzes sem diminuir os alvos e as compensações', (
   assert.match(read('css/styles.css'), /scroll-padding-top: var\(--header\)/);
   assert.match(read('css/theme.css'), /padding-top: calc\(var\(--header\) \+ 65px\)/);
   assert.match(read('css/theme.css'), /min-height: 44px;/);
+});
+
+
+test('rodapé compacto aproxima a faixa inferior sem cortar a controladora', () => {
+  const css = read('css/stage-effects.css');
+  assert.match(css, /padding-top: 20px;\s*padding-bottom: 12px;\s*gap: 8px;/);
+  assert.match(css, /margin: 0 calc\(-1 \* var\(--footer-gutter\)\) calc\(-1 \* clamp\(24px, 4vw, 64px\)\);/);
+  assert.match(css, /height: clamp\(100px, 14vw, 235px\);/);
+  assert.match(css, /footer-controller\.webp'\) center bottom \/ 100% auto no-repeat;/);
+  assert.match(css, /@media \(max-width: 650px\)[\s\S]*height: 76px;\s*margin-top: 0;\s*margin-bottom: -22px;/);
+  // The existing art is 2172x724: the deck ends around source y=635.
+  // Keep the lower text below it even when reclaiming the dark image base.
+  for (const width of [320, 390, 650, 651, 800, 1024, 1200, 1440, 1863, 2560]) {
+    const mobile = width <= 650;
+    const darkBase = width * (mobile ? 1.2 : 1) * (724 - 635) / 2172;
+    const reclaimed = (mobile ? 22 : Math.min(64, Math.max(24, width * 0.04))) - 8;
+    assert.ok(darkBase > reclaimed, `Deck clearance at ${width}px`);
+  }
 });
