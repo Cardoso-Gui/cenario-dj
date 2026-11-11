@@ -94,7 +94,7 @@ as regressões do catálogo e da navegação.
 ## Publicação
 
 O GitHub Pages publica a raiz da branch `main`:
-https://cardoso-gui.github.io/cenario-dj/
+https://www.cenariodj.com.br/
 
 O arquivo `.nojekyll` mantém a publicação dos arquivos estáticos sem processamento
 pelo Jekyll. Após publicar, confira a execução de deploy e o site resultante.
@@ -123,3 +123,32 @@ A home inclui Open Graph e Twitter Card com URL canônica pública. A arte aprov
 A página Lançamentos mantém a URL `mixes.html` e o identificador `#mixes` por compatibilidade. Os destaques são selecionados manualmente, sem integração de atualização automática. Ao publicar uma novidade, verifique o perfil oficial, atualize o título, créditos, imagem e link de destino em `mixes.html` e confira desktop e celular. Os links permanentes para os perfis continuam disponíveis abaixo de cada destaque.
 
 A capa de BAILE DO BLUE vem do CDN público do Spotify. A foto que acompanha o vídeo é uma foto original da galeria do artista, não uma miniatura capturada do vídeo. Os botões abrem as plataformas oficiais em nova aba. `css/releases.css` estiliza os destaques.
+
+
+## Metadados e busca
+
+As seis páginas públicas têm URL canônica própria no domínio `https://www.cenariodj.com.br`,
+descrição específica, Open Graph e Twitter Card. Preserve os textos visíveis, as cores,
+os recursos e os parâmetros de versão ao editar apenas esses metadados.
+
+- A home descreve o Cenário DJ como vitrine de artistas com sites próprios e usa
+  os dados estruturados `WebSite`.
+- A página inicial do Flavinnho identifica a entidade do artista como `MusicGroup`,
+  com seus canais oficiais. Não inferir cidade-base ou endereço a partir do filtro
+  de região do catálogo.
+- A home usa a arte social existente. As páginas do artista usam a foto original
+  `assets/galeria/na-controladora.webp`, com dimensões de 603 × 920. A Twitter Card
+  dessas páginas usa `summary`, adequada à foto vertical, em vez de forçar uma
+  faixa horizontal. Aplicativos podem aplicar recortes e manter prévias em cache.
+- Ao adicionar ou remover uma página pública, atualizar `sitemap.xml` e conferir
+  seu canonical. `robots.txt` indica o endereço desse sitemap.
+- O sitemap não declara prioridades nem datas estimadas. Se `lastmod` for adicionado,
+  usar apenas a data de uma alteração significativa verificável.
+- Títulos e descrições devem ser claros e próprios de cada página; não há uma
+  contagem rígida de caracteres. Evitar prometer abrangência que o catálogo ainda
+  não oferece.
+
+Execute `node --test tests/*.test.cjs`, que inclui as verificações de SEO em
+`tests/seo.test.cjs`. Após uma publicação autorizada, confira as seis páginas,
+as imagens sociais, o sitemap e o robots no domínio público. Metadados não
+asseguram indexação, uma prévia específica ou posição nos buscadores.
