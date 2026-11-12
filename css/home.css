@@ -587,3 +587,8 @@
     top: 0
   }
 }
+
+/* Retrato autêntico retirado do press kit, sem alterações faciais. */
+.page-inicio .portrait-collage{background:#d5d0df;box-shadow:0 20px 45px #0009}
+.page-inicio .portrait-collage>img{object-position:center 14%;filter:none}
+@media(max-width:650px){.page-inicio .portrait-collage>img{object-position:center 14%}}
