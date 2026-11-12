@@ -1,0 +1,12 @@
+/* Faixa compacta e destacada para materiais oficiais do artista */
+.page-inicio .presskit-feature{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:30px clamp(24px,6%,110px);background:linear-gradient(112deg,#12071edb,#150c27ec 46%,#081321ef),url('../assets/home-publico.jpg') center 45%/cover no-repeat;border-top:1px solid #ae46fa88;border-bottom:1px solid #a749e764;isolation:isolate}
+.page-inicio .presskit-feature:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 80% 40%,#a030fb20,transparent 62%)}
+.presskit-feature-copy{max-width:730px}
+.presskit-feature-kicker{display:block;color:#d5b5f9;font-size:10px;letter-spacing:.19em;font-weight:800;margin-bottom:8px}
+.page-inicio .presskit-feature h2{font-family:Inter,Arial,sans-serif;margin:0 0 9px;font-weight:900;letter-spacing:-.045em;line-height:1.05;font-size:clamp(27px,3.2vw,43px)}
+.page-inicio .presskit-feature h2 em{font-style:normal;color:#cb71ff}
+.presskit-feature p{color:#d1c8de;font-size:clamp(12px,1.2vw,14px);line-height:1.55;max-width:680px;margin:0}
+.presskit-feature-button{display:inline-flex;justify-content:center;align-items:center;gap:16px;white-space:nowrap;flex:none;border-radius:99px;padding:15px 23px;font-size:12px;font-weight:850;letter-spacing:.03em;color:#10091b;background:#e6c6ff;box-shadow:0 7px 30px #a32bdf42;transition:transform .18s ease,background .18s ease}
+.presskit-feature-button:hover{transform:translateY(-2px);background:#fff}
+.presskit-feature-button span{font-size:18px}
+@media(max-width:750px){.page-inicio .presskit-feature{padding:25px 6%;flex-direction:column;align-items:flex-start;gap:19px}.presskit-feature-button{align-self:stretch;white-space:normal}.presskit-feature-kicker{font-size:9px}}
