@@ -1,0 +1,18 @@
+/* Bloco final: dois caminhos claros para produtores e fãs */
+.page-inicio .home-connect{position:relative;isolation:isolate;overflow:hidden;padding:74px 6% 86px;text-align:center;border-top:1px solid #9e4ada5c;background:linear-gradient(90deg,#03040caa,#03040ce8 42%,#03040cdd 65%,#070a1caa),url('../assets/home-publico.jpg') center 42%/cover no-repeat}
+.page-inicio .home-connect:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 10% 80%,#a72bff28,transparent 50%),radial-gradient(ellipse at 95% 20%,#177cfa2a,transparent 50%)}
+.page-inicio .home-connect .eyebrow{color:#d9cce7;font-size:11px;letter-spacing:.25em;justify-content:center;margin:0 0 16px}
+.page-inicio .home-connect>h2{font-family:'Barlow Condensed',Inter,Arial,sans-serif;font-weight:900;font-size:clamp(40px,5.7vw,80px);line-height:1;letter-spacing:-.015em;margin:0 0 33px}
+.page-inicio .home-connect>h2 em{font-style:normal;color:#b64bfa}
+.home-connect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1120px;margin:auto;text-align:left}
+.connect-card{display:flex;flex-direction:column;align-items:flex-start;border:1px solid #ac5af47a;border-radius:20px;padding:30px;background:linear-gradient(130deg,#160d27ed,#080913e8);box-shadow:0 12px 32px #0007;min-width:0;transition:border-color .2s,transform .2s}
+.connect-card:hover{border-color:#d492fc;transform:translateY(-3px)}
+.connect-label{font-weight:850;font-size:11px;letter-spacing:.2em;color:#d3a2f8;margin-bottom:13px}
+.page-inicio .connect-card h3{font-family:Inter,Arial,sans-serif;font-size:clamp(21px,2.4vw,30px);line-height:1.15;letter-spacing:-.035em;margin:0 0 12px}
+.connect-card p{font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#c8c3d4;max-width:440px;margin:0 0 24px;flex:1}
+.connect-card .connect-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:13px 22px;min-height:47px;border-radius:99px;border:1px solid #d39bff;color:white;font-family:Inter,Arial,sans-serif;font-weight:800;font-size:12px;letter-spacing:.025em;text-decoration:none;background:#69289eb0;transition:background .2s}
+.connect-card .connect-button:hover{background:#9246c8}
+.connect-card .connect-button.secondary{background:#0c0b16d9;border-color:#c6a1dd}
+.connect-card .connect-button.secondary:hover{background:#412159}
+@media(max-width:750px){.page-inicio .home-connect{padding:55px 5% 65px}.page-inicio .home-connect>h2{margin-bottom:26px}.home-connect-grid{grid-template-columns:1fr;gap:16px}.connect-card{padding:24px}.connect-card p{margin-bottom:20px}.connect-card .connect-button{width:100%}}
+@media(prefers-reduced-motion:reduce){.connect-card{transition:none}.connect-card:hover{transform:none}}
