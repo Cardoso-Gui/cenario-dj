@@ -15,7 +15,7 @@ test('home: vídeo não inicia nem baixa automaticamente',()=>{const video=html.
 test('home: menu abre, fecha e devolve o foco com Escape',()=>{
  const handlers={},button={attrs:{},addEventListener(k,fn){handlers.click=fn;},setAttribute(k,v){this.attrs[k]=v;},focus(){this.focused=true;}},menu={hidden:true,contains(e){return e===button;},querySelectorAll(){return[];}},year={};let mediaChange;
  const document={activeElement:button,getElementById(id){return {'artist-menu':button,'artist-nav':menu,year}[id];},addEventListener(k,fn){handlers[k]=fn;}};
- vm.runInNewContext(fs.readFileSync(path.join(root,'js/flavinnho-home.js'),'utf8'),{document,Date,matchMedia(){return{addEventListener(k,fn){mediaChange=fn;}};}});
+ vm.runInNewContext(fs.readFileSync(path.join(root,'js/artist-navigation.js'),'utf8'),{document,Date,matchMedia(){return{addEventListener(k,fn){mediaChange=fn;}};}});
  handlers.click();assert.equal(menu.hidden,false);assert.equal(button.attrs['aria-expanded'],'true');handlers.keydown({key:'Escape'});assert.equal(menu.hidden,true);assert.equal(button.focused,true);
  handlers.click();mediaChange({matches:true});assert.equal(menu.hidden,true);assert.equal(button.attrs['aria-expanded'],'false');
 });
