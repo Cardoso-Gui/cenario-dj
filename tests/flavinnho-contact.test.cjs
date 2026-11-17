@@ -1,11 +1,12 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
-const html = fs.readFileSync(path.join(root, 'contato.html'), 'utf8');
-const css = fs.readFileSync(path.join(root, 'css/contact.css'), 'utf8');
+const html = fs.readFileSync(projectPath( 'contato.html'), 'utf8');
+const css = fs.readFileSync(projectPath( 'css/contact.css'), 'utf8');
 
 test('contato: ambas as chamadas de contratação abrem o mesmo WhatsApp com texto editável', () => {
   const artistContact = html.split('<footer>')[0];
@@ -38,6 +39,6 @@ test('contato: ação principal mantém texto legível e foco visível', () => {
 
 test('contato: refinamento visual não é carregado em outras páginas', () => {
   for (const file of ['index.html', 'flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html']) {
-    assert.doesNotMatch(fs.readFileSync(path.join(root, file), 'utf8'), /css\/contact\.css/);
+    assert.doesNotMatch(fs.readFileSync(projectPath( file), 'utf8'), /css\/contact\.css/);
   }
 });

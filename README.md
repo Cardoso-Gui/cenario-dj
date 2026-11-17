@@ -152,3 +152,8 @@ Execute `node --test tests/*.test.cjs`, que inclui as verificações de SEO em
 `tests/seo.test.cjs`. Após uma publicação autorizada, confira as seis páginas,
 as imagens sociais, o sitemap e o robots no domínio público. Metadados não
 asseguram indexação, uma prévia específica ou posição nos buscadores.
+
+
+## Rotas do site do Flavinnho
+
+O catálogo fica na raiz do domínio. O site do artista fica em `/flavinnho/`, com as páginas `/flavinnho/sobre/`, `/flavinnho/mixes/`, `/flavinnho/fotos/` e `/flavinnho/contato/`. Cada rota é um diretório com `index.html`, compatível com GitHub Pages. Recursos compartilhados continuam em `/assets/`, `/css/` e `/js/`. Os cinco endereços antigos com `.html` redirecionam para as novas páginas e preservam parâmetros e âncoras.

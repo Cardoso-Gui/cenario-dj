@@ -1,3 +1,4 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -6,9 +7,9 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const origin = 'https://www.cenariodj.com.br';
 const files = ['index.html', 'flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'contato.html'];
-const pages = Object.fromEntries(files.map(file => [file, fs.readFileSync(path.join(root, file), 'utf8')]));
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const pageUrl = file => `${origin}/${file === 'index.html' ? '' : file}`;
+const pages = Object.fromEntries(files.map(file => [file, fs.readFileSync(projectPath( file), 'utf8')]));
+const read = file => fs.readFileSync(projectPath( file), 'utf8');
+const pageUrl = file => origin+pageUrlPath(file);
 
 function attributes(tag) {
   return Object.fromEntries([...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
@@ -53,7 +54,7 @@ for (const file of files) {
     assert.ok(meta(html, 'twitter:image:alt').length > 10);
     const imageUrl = new URL(image);
     assert.equal(imageUrl.origin, origin);
-    assert.ok(fs.statSync(path.join(root, imageUrl.pathname)).size > 1000);
+    assert.ok(fs.statSync(projectPath( imageUrl.pathname)).size > 1000);
     assert.doesNotMatch(html.match(/<head>[\s\S]*?<\/head>/)[0], /cardoso-gui\.github\.io/);
   });
 }
@@ -84,7 +85,7 @@ test('SEO: artist structured data uses existing facts and official channels with
   assert.equal(jsonLd(pages['flavinnho.html']).length, 1);
   assert.equal(artist['@context'], 'https://schema.org');
   assert.equal(artist['@type'], 'MusicGroup');
-  assert.equal(artist['@id'], `${origin}/flavinnho.html#artist`);
+  assert.equal(artist['@id'], `${origin}/flavinnho/#artist`);
   assert.equal(artist.name, 'Flavinnho');
   assert.equal(artist.genre, 'Funk');
   assert.equal(artist.url, pageUrl('flavinnho.html'));

@@ -1,5 +1,6 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,f),'utf8'),html=read('flavinnho.html');
+const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(projectPath(f),'utf8'),html=read('flavinnho.html');
 test('Instagram e press kit dividem o bloco oficial e mantêm os destinos existentes',()=>{const section=html.match(/<section class="home-connect[\s\S]*?<\/section>/)[0];assert.match(section,/PRESS KIT/);assert.match(section,/@FLAVINNHODJ/);assert.match(section,/https:\/\/www.instagram.com\/flavinnhodj\//);assert.match(section,/drive.google.com\/drive\/folders\/1nIfQXXIG2wH0tzeTX6og7APRapcTWScv/);assert.equal((section.match(/<article/g)||[]).length,2);assert.doesNotMatch(section,/seguidores|followers|<iframe/i);});
 test('Estilo da nova home fica isolado das páginas internas e do catálogo',()=>{assert.match(html,/css\/flavinnho-home.css/);for(const f of ['index.html','fotos.html','contato.html'])assert.doesNotMatch(read(f),/css\/flavinnho-home.css/);});
 test('Chamadas de música, contratação e redes permanecem disponíveis',()=>{assert.match(html,/Contratar para meu evento/);assert.match(html,/Ouvir no Spotify/);assert.match(html,/<footer>[\s\S]*https:\/\/www.instagram.com\/flavinnhodj\//);});

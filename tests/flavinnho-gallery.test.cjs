@@ -1,16 +1,17 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
-const html = fs.readFileSync(path.join(root, 'fotos.html'), 'utf8');
-const css = fs.readFileSync(path.join(root, 'css/gallery.css'), 'utf8');
-const photoJS = fs.readFileSync(path.join(root, 'js/photo-gallery.js'), 'utf8');
-const videoJS = fs.readFileSync(path.join(root, 'js/video-gallery.js'), 'utf8');
+const html = fs.readFileSync(projectPath( 'fotos.html'), 'utf8');
+const css = fs.readFileSync(projectPath( 'css/gallery.css'), 'utf8');
+const photoJS = fs.readFileSync(projectPath( 'js/photo-gallery.js'), 'utf8');
+const videoJS = fs.readFileSync(projectPath( 'js/video-gallery.js'), 'utf8');
 const photoFiles = ['palco-azul-ia.webp','energia-no-palco-ia.webp','ao-ar-livre-ia.webp','na-controladora-ia.webp','no-microfone-ia.webp','retrato.webp?v=2','set-externo-ia.webp','voz-e-musica-ia.webp','producao-ia.webp','retrato-retro-ia.webp','sorrindo-ia.webp'];
 test('galeria: preserva todas as onze imagens na mesma ordem', () => {
-  const urls = [...html.matchAll(/class="photo-card"\s+href="\.\/assets\/galeria\/([^\"]+)"/g)].map(x=>x[1]);
+  const urls = [...html.matchAll(/class="photo-card"\s+href="\/assets\/galeria\/([^\"]+)"/g)].map(x=>x[1]);
   assert.deepEqual(urls,photoFiles);
   assert.equal((html.match(/aria-label="Abrir foto /g)||[]).length,11);
   assert.doesNotMatch(html,/photo-carousel|gallery-play|aria-roledescription="carrossel"/);
@@ -25,13 +26,13 @@ test('galeria: grade responsiva e atalhos válidos', () => {
   }
   assert.match(css,/scroll-margin-top: 28px/);
   assert.match(css,/scroll-margin-top: 16px/);
-  assert.match(fs.readFileSync(path.join(root,"css/styles.css"),"utf8"),/scroll-padding-top: var\(--header\)/);
+  assert.match(fs.readFileSync(projectPath("css/styles.css"),"utf8"),/scroll-padding-top: var\(--header\)/);
   assert.match(css,/\.video-preview:focus-visible \{ outline-offset: -4px/);
 });
 test('galeria: preserva quatro vídeos e poster sem carregar o player antecipadamente', () => {
   for(const name of ['oficial-jk','afterfunk','carnavrau','urupes']) {
-    assert.match(html,new RegExp(`href="\\./assets/videos/${name}\\.mp4"`));
-    assert.match(html,new RegExp(`src="\\./assets/videos/${name}\\.jpg"`));
+    assert.match(html,new RegExp(`href="/assets/videos/${name}\\.mp4"`));
+    assert.match(html,new RegExp(`src="/assets/videos/${name}\\.jpg"`));
   }
   assert.equal((html.match(/class="video-preview"/g)||[]).length,4);
   assert.match(html,/<video class="viewer-video" controls playsinline preload="none"><\/video>/);

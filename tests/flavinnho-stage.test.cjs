@@ -1,10 +1,11 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const read = file => fs.readFileSync(projectPath( file), 'utf8');
 const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'contato.html'];
 
 for (const page of pages) {
@@ -33,7 +34,7 @@ test('efeitos não interceptam cliques nem animam as luzes', () => {
 test('recursos decorativos são WebP locais e leves', () => {
   let total = 0;
   for (const file of ['header-lights.webp', 'footer-controller.webp']) {
-    const bytes = fs.readFileSync(path.join(root, 'assets/stage', file));
+    const bytes = fs.readFileSync(projectPath( 'assets/stage', file));
     assert.equal(bytes.toString('ascii', 0, 4), 'RIFF');
     assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
     assert.ok(read('css/stage-effects.css').includes(`../assets/stage/${file}`));

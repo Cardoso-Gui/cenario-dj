@@ -1,8 +1,9 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'flavinnho.html'),'utf8');
+const root=path.resolve(__dirname,'..'),html=fs.readFileSync(projectPath('flavinnho.html'),'utf8');
 test('home: cada destino local e imagem existe, IDs são únicos e âncoras são válidas',()=>{
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
- for(const [,url]of html.matchAll(/(?:href|src|poster)="(\.[^"]+)"/g)){const file=url.split('?')[0];assert.ok(fs.existsSync(path.join(root,file)),file);}
+ for(const [,url]of html.matchAll(/(?:href|src|poster)="(\.[^"]+)"/g)){const file=url.split('?')[0];assert.ok(fs.existsSync(projectPath(file)),file);}
  for(const [,anchor]of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(anchor),anchor);
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
 });
@@ -15,7 +16,7 @@ test('home: vídeo não inicia nem baixa automaticamente',()=>{const video=html.
 test('home: menu abre, fecha e devolve o foco com Escape',()=>{
  const handlers={},button={attrs:{},addEventListener(k,fn){handlers.click=fn;},setAttribute(k,v){this.attrs[k]=v;},focus(){this.focused=true;}},menu={hidden:true,contains(e){return e===button;},querySelectorAll(){return[];}},year={};let mediaChange;
  const document={activeElement:button,getElementById(id){return {'artist-menu':button,'artist-nav':menu,year}[id];},addEventListener(k,fn){handlers[k]=fn;}};
- vm.runInNewContext(fs.readFileSync(path.join(root,'js/artist-navigation.js'),'utf8'),{document,Date,matchMedia(){return{addEventListener(k,fn){mediaChange=fn;}};}});
+ vm.runInNewContext(fs.readFileSync(projectPath('js/artist-navigation.js'),'utf8'),{document,Date,matchMedia(){return{addEventListener(k,fn){mediaChange=fn;}};}});
  handlers.click();assert.equal(menu.hidden,false);assert.equal(button.attrs['aria-expanded'],'true');handlers.keydown({key:'Escape'});assert.equal(menu.hidden,true);assert.equal(button.focused,true);
  handlers.click();mediaChange({matches:true});assert.equal(menu.hidden,true);assert.equal(button.attrs['aria-expanded'],'false');
 });

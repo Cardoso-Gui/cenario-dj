@@ -1,10 +1,11 @@
+const {projectPath,pageUrlPath}=require('./page-paths.cjs');
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const read = file => fs.readFileSync(projectPath( file), 'utf8');
 const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'contato.html'];
 const message = 'Olá, Gui! Vi o site do Flavinnho e gostaria de saber mais sobre um site para mim.';
 
