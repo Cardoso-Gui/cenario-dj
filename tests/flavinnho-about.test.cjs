@@ -1,29 +1,6 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const root = path.resolve(__dirname, '..');
-const html = fs.readFileSync(path.join(root, 'sobre.html'), 'utf8');
-const css = fs.readFileSync(path.join(root, 'css/about.css'), 'utf8');
-test('sobre: mantém biografia e modal consolidados', () => {
-  assert.match(html, /A música faz parte da minha história desde os 15 anos\./);
-  assert.match(html, /Depois de dois anos com a banda, decidi seguir esse caminho de vez e focar na carreira de DJ\./);
-  assert.match(html, /Minhas próprias músicas e remixes fazem parte dos meus sets/);
-  assert.match(html, /js\/story-modal\.js\?v=1/);
-  assert.match(html, /<details class="story">/);
-  assert.match(html, /assets\/flavinnho-sorrindo\.jpg/);
-});
-test('sobre: link discreto leva à página existente de lançamentos', () => {
-  assert.match(html, /<a class="about-mixes" href="\.\/mixes\.html">Ouça meus lançamentos/);
-  assert.match(css, /\.about-mixes:focus-visible\s*\{[^}]*outline:\s*2px solid #fff/);
-  assert.match(css, /min-height:\s*44px/);
-});
-test('sobre: refinamento móvel é isolado e legível', () => {
-  assert.match(css, /@media \(max-width: 650px\)/);
-  assert.match(css, /font-size: 16px/);
-  assert.match(css, /font-size: 12px/);
-  assert.match(html, /css\/about\.css\?v=1/);
-  for (const f of ['index.html','flavinnho.html','mixes.html','fotos.html','contato.html']) {
-    assert.doesNotMatch(fs.readFileSync(path.join(root,f),'utf8'), /css\/about\.css/);
-  }
-});
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,f),'utf8'),html=read('sobre.html');
+test('sobre: biografia completa fica visível, com foto original e sem modal',()=>{for(const text of ['A música faz parte da minha história desde os 15 anos.','Depois de dois anos com a banda, decidi seguir esse caminho de vez e focar na carreira de DJ.','Minhas próprias músicas e remixes fazem parte dos meus sets'])assert.ok(html.includes(text));assert.match(html,/assets\/flavinnho-sorrindo.jpg/);assert.doesNotMatch(html,/<details|story-modal.js/);assert.equal((html.match(/<h1\b/g)||[]).length,1);});
+test('sobre: destinos e âncoras locais existem e IDs não se repetem',()=>{const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const [,url]of html.matchAll(/(?:href|src)="(\.[^"]+)"/g))assert.ok(fs.existsSync(path.join(root,url.split('?')[0])),url);for(const [,id]of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(id));assert.match(html,/class="button outline about-mixes" href=".\/mixes.html">Ouça meus lançamentos/);});
+test('sobre: navegação identifica apenas Sobre em cada menu',()=>{for(const nav of html.matchAll(/<nav[^>]+aria-label="(?:Menu principal|Menu para celular)"[\s\S]*?<\/nav>/g)){assert.equal((nav[0].match(/aria-current="page"/g)||[]).length,1);assert.match(nav[0],/href=".\/sobre.html" aria-current="page"/);}for(const [tag]of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g))assert.match(tag,/rel="noopener noreferrer"/);});
+test('sobre: estilos editoriais são exclusivos e a estrutura compartilhada mantém menu acessível',()=>{assert.match(html,/css\/flavinnho-about.css/);assert.match(html,/js\/flavinnho-home.js/);assert.match(html,/id="artist-menu"[^>]*aria-expanded="false"/);for(const f of ['index.html','flavinnho.html','mixes.html','fotos.html','contato.html'])assert.doesNotMatch(read(f),/css\/flavinnho-about.css/);});
