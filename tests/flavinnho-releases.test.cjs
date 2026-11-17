@@ -45,6 +45,6 @@ test('Lançamentos: names change without breaking existing URLs or anchors',()=>
  }
 });
 test('Lançamentos: home invitation and biography link use the new name',()=>{
- assert.match(fs.readFileSync(path.join(root,'flavinnho.html'),'utf8'),/CONFIRA OS LANÇAMENTOS/);
+ assert.match(fs.readFileSync(path.join(root,'flavinnho.html'),'utf8'),/id="releases-title">LANÇAMENTOS/);
  assert.match(fs.readFileSync(path.join(root,'sobre.html'),'utf8'),/Ouça meus lançamentos/);
 });

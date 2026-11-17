@@ -10,6 +10,7 @@ const pages = ['flavinnho.html', 'sobre.html', 'mixes.html', 'fotos.html', 'cont
 for (const page of pages) {
   test(`${page}: cenário decorativo preserva conteúdo e navegação reais`, () => {
     const html = read(page);
+    if(page==='flavinnho.html'){assert.match(html,/css\/flavinnho-home.css/);assert.match(html,/class="hero-stage" aria-hidden="true"/);assert.doesNotMatch(html,/eventos\.html/);return;}
     assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=6/g)].length, 1);
     assert.ok(html.indexOf('css/stage-effects.css') > html.indexOf('css/readability.css'));
     assert.equal([...html.matchAll(/class="footer-console" aria-hidden="true"/g)].length, 1);
