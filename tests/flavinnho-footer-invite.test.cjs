@@ -15,7 +15,7 @@ for (const page of pages) {
     const footer = html.match(/<footer>([\s\S]*?)<\/footer>/)?.[1];
     assert.ok(footer);
     assert.equal((html.match(/class="footer-invite"/g) || []).length, 1);
-    if (page === 'fotos.html') {
+    if (page === 'fotos.html' || page === 'contato.html') {
       const invite = footer.match(/<div class="footer-invite">([\s\S]*?)<\/div>/)[1];
       const destinations = [...invite.matchAll(/href="([^"]+)"/g)];
       assert.equal(destinations.length, 1);

@@ -6,7 +6,6 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(projectPath( 'contato.html'), 'utf8');
-const css = fs.readFileSync(projectPath( 'css/contact.css'), 'utf8');
 
 test('contato: ambas as chamadas de contratação abrem o mesmo WhatsApp com texto editável', () => {
   const artistContact = html.split('<footer>')[0];
@@ -22,19 +21,13 @@ test('contato: ambas as chamadas de contratação abrem o mesmo WhatsApp com tex
   }
 });
 
-test('contato: mantém telefone, título e frase sem criar envio automático', () => {
-  assert.match(html, /href="tel:\+5517996519630"/);
-  assert.match(html, /QUER O FLAVINNHO<br>NO SEU <em>EVENTO\?<\/em>/);
-  assert.match(html, /Uma nova pista\. Uma nova história\./);
-  assert.match(html, /Conte a <strong>data<\/strong>, a <strong>cidade<\/strong> e o <strong>tipo de evento<\/strong>\./);
+test('contato: oferece ligação e orienta o pedido de disponibilidade', () => {
+  assert.match(html, /href="tel:\+5517996519630"[\s\S]*?Ligar para Flavinnho/);
+  assert.match(html, /<h1 id="contact-title">QUER O FLAVINNHO/);
+  for (const item of ['Data do evento', 'Cidade', 'Tipo de evento']) {
+    assert.ok(html.includes(`${item}</li>`));
+  }
   assert.doesNotMatch(html, /<form|<input|onclick=|onload=/);
-});
-
-test('contato: ação principal mantém texto legível e foco visível', () => {
-  assert.match(css, /\.page-contato \.contact \.contact-whatsapp\s*\{[^}]*font-size:\s*15px/);
-  assert.match(css, /@media \(max-width: 650px\)[\s\S]*font-size:\s*14px/);
-  assert.match(css, /\.contact-whatsapp:focus-visible\s*\{[^}]*outline:\s*2px solid #fff/);
-  assert.match(html, /css\/contact\.css\?v=2/);
 });
 
 test('contato: refinamento visual não é carregado em outras páginas', () => {

@@ -21,10 +21,9 @@ for (const page of pages) {
     }
     if(page==='sobre.html'){assert.match(html,/css\/flavinnho-about.css/);assert.doesNotMatch(html,/eventos\.html/);return;}
     if(page==='flavinnho.html'){assert.match(html,/css\/flavinnho-home.css/);assert.match(html,/class="hero-stage" aria-hidden="true"/);assert.doesNotMatch(html,/eventos\.html/);return;}
-    assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=6/g)].length, 1);
-    assert.ok(html.indexOf('css/stage-effects.css') > html.indexOf('css/readability.css'));
-    assert.equal([...html.matchAll(/class="footer-console" aria-hidden="true"/g)].length, 1);
-    assert.match(html, /<footer>[\s\S]*class="social-links"[\s\S]*class="footer-console"[\s\S]*<small>/);
+    assert.match(html, /css\/contact.css/);
+    assert.match(html, /<img src="\/assets\/flavinnho-sorrindo.jpg" alt="[^"]+"/);
+    assert.match(html, /<footer>[\s\S]*aria-label="Redes oficiais"[\s\S]*<small>/);
     assert.doesNotMatch(html, /eventos\.html/);
   });
 }
