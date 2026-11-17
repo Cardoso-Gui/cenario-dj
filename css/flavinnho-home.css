@@ -17,3 +17,21 @@
 .home-about{gap:clamp(64px,5vw,160px)}.home-about-copy{max-width:680px}.home-about-copy>p:not(.eyebrow){max-width:62ch;font-size:clamp(15px,1vw,19px)}.about-photo{height:clamp(425px,30vw,760px)}.gallery-photo,.gallery-video{height:clamp(235px,18vw,460px)}
 .release-info h3{font-size:clamp(30px,2.2vw,48px)}.release-info>p:not(.eyebrow){font-size:clamp(12px,.9vw,17px)}.connect-card{padding:clamp(30px,2.5vw,60px)}.connect-card p:not(.eyebrow){max-width:42ch;font-size:clamp(13px,.95vw,18px)}
 }
+
+/* Keep footer text readable and group its actions on wide monitors. */
+footer{padding:34px 0 28px;border-top:1px solid #30213e}
+.footer-top{display:grid;grid-template-columns:auto 1fr auto;gap:32px;padding-bottom:24px;border-bottom-color:#44324f}
+.footer-top .wordmark img{width:160px}
+.footer-top nav{justify-content:center;gap:12px;font-size:clamp(14px,.9vw,17px);font-weight:600}
+.footer-top nav a,.back-top,.cenario-return{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border-radius:8px}
+.footer-top nav a{color:#e8e1ef}.footer-top nav a:hover{background:#a437e51b}
+.back-top{font-size:14px;color:#d0c2dc;white-space:nowrap}
+.footer-bottom{justify-content:flex-start;gap:28px;padding-top:22px;color:#c6bbd1;font-size:14px;line-height:1.6}
+.footer-bottom small{font-size:13px}.cenario-return{font-size:14px;color:#dcadf4;background:#b740fa0a;border:1px solid #624079}
+.footer-invite{margin-left:auto;align-items:center;gap:16px;font-size:14px;color:#d2c5dd}
+.footer-invite a{min-height:44px;padding:10px 18px;border:1px solid #9e63c3;border-radius:24px;color:#f1deff;text-decoration:none;font-weight:700;background:#8e28be15}
+.footer-invite a:hover,.cenario-return:hover{background:#a437e52b;border-color:#e0a5ff}
+.footer-invite .ui-icon{width:17px;height:17px}
+@media(max-width:760px){
+footer{padding:28px 0 88px}.footer-top{grid-template-columns:1fr auto;gap:15px;padding-bottom:20px}.footer-top .wordmark img{width:135px}.footer-top nav{grid-column:1/-1;grid-row:2;justify-content:flex-start;flex-wrap:wrap;gap:6px;font-size:14px}.footer-top nav a{padding:10px 12px}.back-top{width:auto;font-size:12px;padding:10px 0}.footer-bottom{gap:17px;padding-top:20px;font-size:13px}.footer-bottom small{font-size:12px}.cenario-return{font-size:13px;padding:9px 12px}.footer-invite{margin-left:0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:13px}.footer-invite a{padding:10px 16px;font-size:13px}
+}
