@@ -124,8 +124,8 @@ test('SEO: robots allows crawling and points to the canonical sitemap', () => {
   assert.equal(read('CNAME').trim(), 'www.cenariodj.com.br');
 });
 
-test('SEO: existing browser theme colors are unchanged', () => {
+test('SEO: browser theme colors match each visual identity', () => {
   for (const file of files) {
-    assert.equal(meta(pages[file], 'theme-color'), file === 'index.html' ? '#090b09' : '#07080d');
+    assert.equal(meta(pages[file], 'theme-color'), file === 'index.html' ? '#080b13' : '#07080d');
   }
 });

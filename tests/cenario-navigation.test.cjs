@@ -146,8 +146,8 @@ test('Markup oferece Para DJs nas duas navegações e destinos focáveis', () =>
   assert.match(css, /\.icon-btn, \.menu-btn\s*\{[^}]*min-width:\s*44px;[^}]*min-height:\s*44px;[^}]*flex-shrink:\s*0/);
 });
 
-test('Título e contagem antecedem os filtros, que antecedem os cards', () => {
-  const ids = ['destaque', 'djs', 'more-title', 'result-count', 'busca', 'catalog-grid'];
+test('Busca vem antes do catálogo, contagem e cards', () => {
+  const ids = ['busca', 'djs', 'more-title', 'result-count', 'catalog-grid'];
   for (let i = 1; i < ids.length; i++) assert.ok(html.indexOf('id="' + ids[i - 1] + '"') < html.indexOf('id="' + ids[i] + '"'));
   for (const id of ids) assert.equal([...html.matchAll(new RegExp('id="' + id + '"', 'g'))].length, 1);
   assert.match(html, /id="result-count" role="status" aria-live="polite"/);
@@ -186,7 +186,7 @@ test('Contagem acima dos filtros continua dinâmica e acessível', () => {
 test('Limpar resultado vazio mantém um destino de foco após recriar cards', () => {
   const ui = setup(); const actions = [];
   ui.elements['catalog-grid'].children = [ui.elements['empty-clear']]; ui.elements['empty-clear'].focus();
-  const scope = { document: ui.document, $: id => ui.elements[id], form: { reset() { actions.push('reset'); } }, updateRegions() { actions.push('regions'); }, render() { actions.push('render'); ui.document.activeElement = null; } };
+  const scope = { document: ui.document, $: id => ui.elements[id], form: { reset() { actions.push('reset'); } }, selectedEvent:'Festa', syncEvents() {}, updateRegions() { actions.push('regions'); }, render() { actions.push('render'); ui.document.activeElement = null; } };
   vm.runInNewContext(source.slice(source.indexOf('function reset('), source.indexOf('function restore(')), scope);
   scope.reset(); assert.deepEqual(actions, ['reset', 'regions', 'render']);
   assert.equal(ui.document.activeElement.id, 'catalog-grid');
