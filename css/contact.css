@@ -134,30 +134,44 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 4px clamp(16px, 3vw, 38px);
-  margin-top: clamp(24px, 3.5vw, 48px);
-  padding: 12px 0;
-  border-top: 1px solid #473152;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: clamp(24px, 3.5vw, 48px) 0 24px;
+  padding: 14px clamp(14px, 2vw, 28px);
+  border: 1px solid #56376b;
+  border-radius: 12px;
+  background: linear-gradient(105deg, #1e112a, #0e0d17 65%);
 }
 
-.contact-explore p {
+.contact-main > .shell { display: flow-root; }
+
+.contact-explore h2 {
   margin: 0;
-  font-weight: 700;
+  font: 700 18px/1.35 Arial, sans-serif;
 }
 
-.contact-explore a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.contact-explore-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-explore .button {
   min-height: 44px;
-  color: #e1a2ff;
-  font-size: 15px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  padding: 9px 13px;
+  gap: 8px;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
-.contact-explore a:hover { color: #f8e8ff; }
+.contact-social a { gap: 7px; }
+
+.contact-social .ui-icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: #dba6f5;
+}
 
 @media (max-width: 800px) {
   .contact-layout { grid-template-columns: 1fr; }
@@ -171,12 +185,15 @@
   .contact-guidance ul { gap: 10px 13px; }
   .contact-guidance li { font-size: 14px; }
   .contact-guidance .ui-icon { width: 21px; height: 21px; }
-  .contact-explore { justify-content: flex-start; }
-  .contact-explore p { flex-basis: 100%; }
+  .contact-explore h2 { font-size: 16px; }
+  .contact-explore .button { padding-inline: 10px; font-size: 13px; }
+  .contact-explore .ui-icon { width: 14px; height: 14px; }
+  .page-contato .footer-top .contact-social a { padding-inline: 6px; gap: 5px; }
+  .contact-social .ui-icon { width: 16px; height: 16px; }
   .page-contato footer { padding-bottom: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-actions .button { transition: none; }
-  .contact-actions .button:hover { transform: none; }
+  .contact-main .button { transition: none; }
+  .contact-main .button:hover { transform: none; }
 }
