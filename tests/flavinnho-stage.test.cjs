@@ -12,6 +12,13 @@ for (const page of pages) {
   test(`${page}: cenário decorativo preserva conteúdo e navegação reais`, () => {
     const html = read(page);
     if(page==='mixes.html'){assert.match(html,/css\/flavinnho-releases.css/);assert.doesNotMatch(html,/eventos\.html/);return;}
+    if (page === 'fotos.html') {
+      assert.match(html, /css\/gallery.css/);
+      assert.match(read('css/gallery.css'), /assets\/stage\/footer-controller.webp/);
+      assert.match(html, /<footer>[\s\S]*aria-label="Redes oficiais"[\s\S]*<small>/);
+      assert.doesNotMatch(html, /eventos\.html/);
+      return;
+    }
     if(page==='sobre.html'){assert.match(html,/css\/flavinnho-about.css/);assert.doesNotMatch(html,/eventos\.html/);return;}
     if(page==='flavinnho.html'){assert.match(html,/css\/flavinnho-home.css/);assert.match(html,/class="hero-stage" aria-hidden="true"/);assert.doesNotMatch(html,/eventos\.html/);return;}
     assert.equal([...html.matchAll(/css\/stage-effects\.css\?v=6/g)].length, 1);

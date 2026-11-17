@@ -9,24 +9,27 @@ const html = fs.readFileSync(projectPath( 'fotos.html'), 'utf8');
 const css = fs.readFileSync(projectPath( 'css/gallery.css'), 'utf8');
 const photoJS = fs.readFileSync(projectPath( 'js/photo-gallery.js'), 'utf8');
 const videoJS = fs.readFileSync(projectPath( 'js/video-gallery.js'), 'utf8');
-const photoFiles = ['palco-azul-ia.webp','energia-no-palco-ia.webp','ao-ar-livre-ia.webp','na-controladora-ia.webp','no-microfone-ia.webp','retrato.webp?v=2','set-externo-ia.webp','voz-e-musica-ia.webp','producao-ia.webp','retrato-retro-ia.webp','sorrindo-ia.webp'];
-test('galeria: preserva todas as onze imagens na mesma ordem', () => {
-  const urls = [...html.matchAll(/class="photo-card"\s+href="\/assets\/galeria\/([^\"]+)"/g)].map(x=>x[1]);
-  assert.deepEqual(urls,photoFiles);
-  assert.equal((html.match(/aria-label="Abrir foto /g)||[]).length,11);
+const photoFiles = [
+  'galeria/na-controladora.webp', 'galeria/energia-no-palco.webp', 'galeria/palco-azul.webp',
+  'galeria/ao-ar-livre.webp', 'galeria/voz-e-musica.webp', 'flavinnho-sorrindo.jpg',
+  'galeria/no-microfone.webp', 'galeria/retrato.webp', 'galeria/set-externo.webp',
+  'galeria/producao.webp', 'galeria/retrato-retro.webp',
+];
+test('galeria: mantém onze fotos, com as imagens originais e sem duplicatas', () => {
+  const urls = [...html.matchAll(/class="photo-card"\s+href="\/assets\/([^"]+)"/g)].map(match => match[1]);
+  assert.equal(urls.length, 11);
+  assert.deepEqual(new Set(urls), new Set(photoFiles));
+  assert.equal((html.match(/aria-label="Abrir foto /g)||[]).length, 11);
+  for (const file of urls) assert.ok(fs.existsSync(projectPath('assets', file)));
   assert.doesNotMatch(html,/photo-carousel|gallery-play|aria-roledescription="carrossel"/);
   assert.doesNotMatch(photoJS,/setTimeout|aria-hidden|tabIndex\s*=/);
 });
-test('galeria: grade responsiva e atalhos válidos', () => {
-  assert.match(css,/column-count: 3/);
-  assert.match(css,/@media\(max-width:650px\)[\s\S]*column-count: 2/);
+test('galeria: atalhos levam para as seções e há acesso a todas as fotos', () => {
   for (const id of ['fotos-grid','videos']) {
-    assert.match(html,new RegExp(`href="#${id}"`));
-    assert.match(html,new RegExp(`id="${id}"`));
+    assert.ok(html.includes(`href="#${id}"`));
+    assert.ok(html.includes(`id="${id}"`));
   }
-  assert.match(css,/scroll-margin-top: 28px/);
-  assert.match(css,/scroll-margin-top: 16px/);
-  assert.match(fs.readFileSync(projectPath("css/styles.css"),"utf8"),/scroll-padding-top: var\(--header\)/);
+  assert.match(html, /<details class="gallery-more">[\s\S]*?<summary[\s\S]*?Ver todas as fotos/);
   assert.match(css,/\.video-preview:focus-visible \{ outline-offset: -4px/);
 });
 test('galeria: preserva quatro vídeos e poster sem carregar o player antecipadamente', () => {

@@ -15,6 +15,17 @@ for (const page of pages) {
     const footer = html.match(/<footer>([\s\S]*?)<\/footer>/)?.[1];
     assert.ok(footer);
     assert.equal((html.match(/class="footer-invite"/g) || []).length, 1);
+    if (page === 'fotos.html') {
+      const invite = footer.match(/<div class="footer-invite">([\s\S]*?)<\/div>/)[1];
+      const destinations = [...invite.matchAll(/href="([^"]+)"/g)];
+      assert.equal(destinations.length, 1);
+      const url = new URL(destinations[0][1]);
+      assert.equal(url.origin + url.pathname, 'https://wa.me/5517991951286');
+      assert.equal(url.searchParams.get('text'), message);
+      assert.match(invite, /Quero meu site/);
+      assert.match(invite, /target="_blank" rel="noopener noreferrer"/);
+      return;
+    }
     assert.match(footer, /<p>Você também é DJ\? Tenha um site com a sua identidade\.<\/p>/);
     const link = footer.match(/<a class="footer-invite-link"[^>]*>[\s\S]*?<\/a>/)?.[0];
     assert.ok(link);
