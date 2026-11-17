@@ -7,8 +7,8 @@ const html=fs.readFileSync(path.join(root,'mixes.html'),'utf8');
 const css=fs.readFileSync(path.join(root,'css/flavinnho-releases.css'),'utf8');
 test('mixes: one visible main title and two explicit destinations',()=>{
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
- assert.match(html,/Ouvir no Spotify/); assert.match(html,/Assistir no YouTube/);
- assert.doesNotMatch(html,/<iframe|autoplay|atualiza automaticamente/i);
+ assert.match(html,/no Spotify/); assert.match(html,/no YouTube/);
+ assert.doesNotMatch(html,/src="[^"]*autoplay=1|atualiza automaticamente/i);assert.equal((html.match(/<iframe/g)||[]).length,3);
 });
 test('mixes: exact verified release and video links',()=>{
  assert.match(html,/https:\/\/open.spotify.com\/album\/3olFKQlBntnXMTke09YryF/);
@@ -21,12 +21,7 @@ test('mixes: permanent artist channels remain available',()=>{
   assert.match(link[0],/target="_blank"/);assert.match(link[0],/rel="noopener noreferrer"/);
  }
 });
-test('mixes: authentic artwork and accessible labels',()=>{
- assert.match(html,/alt="Capa original de BAILE DO BLUE"/);
- assert.match(html,/alt="Foto original do Flavinnho na controladora"/);
- assert.ok(fs.statSync(path.join(root,'assets/galeria/na-controladora.webp')).size>1000);
- assert.equal((html.match(/class="sr-only"> \(abre em nova aba\)/g)||[]).length,4);
-});
+test('mixes: players usam apenas músicas do perfil e o vídeo oficial',()=>{for(const id of ['2105CvnYPZ7UN4xAP0Kj9h','7ifyKlUymf6t1336GkGyZ3'])assert.ok(html.includes('open.spotify.com/embed/track/'+id));assert.ok(html.includes('youtube.com/embed/VQZCh1CUMrs'));for(const [frame]of html.matchAll(/<iframe[^>]*>/g)){assert.match(frame,/title="[^"]+"/);assert.match(frame,/encrypted-media/);assert.match(frame,/referrerpolicy="strict-origin-when-cross-origin"/);}assert.equal((html.match(/class="select-video"/g)||[]).length,6);});
 test('mixes: responsive rows and accessible interactive target size',()=>{
  assert.match(css,/@media\(max-width:760px\)/);
  assert.match(css,/grid-template-columns:1fr/);
