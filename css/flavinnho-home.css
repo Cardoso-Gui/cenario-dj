@@ -35,3 +35,15 @@ footer{padding:34px 0 28px;border-top:1px solid #30213e}
 @media(max-width:760px){
 footer{padding:28px 0 88px}.footer-top{grid-template-columns:1fr auto;gap:15px;padding-bottom:20px}.footer-top .wordmark img{width:135px}.footer-top nav{grid-column:1/-1;grid-row:2;justify-content:flex-start;flex-wrap:wrap;gap:6px;font-size:14px}.footer-top nav a{padding:10px 12px}.back-top{width:auto;font-size:12px;padding:10px 0}.footer-bottom{gap:17px;padding-top:20px;font-size:13px}.footer-bottom small{font-size:12px}.cenario-return{font-size:13px;padding:9px 12px}.footer-invite{margin-left:0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:13px}.footer-invite a{padding:10px 16px;font-size:13px}
 }
+
+/* Give music and social channels clear mobile actions. */
+@media(max-width:760px){
+  .page-inicio .mobile-booking{display:none}
+  .page-inicio .hero-actions>.outline{display:none}
+  .page-inicio .hero-actions{display:block;max-width:none}
+  .page-inicio .hero-actions>.primary{width:100%;min-height:48px;font-size:15px}
+  .page-inicio .hero-socials{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;font-size:15px;letter-spacing:0}
+  .page-inicio .hero-socials a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px;border:1px solid #a965ce;border-radius:12px;background:#241330;color:#f7ebff;font-weight:700}
+  .page-inicio .hero-socials a:hover{background:#3b1b50}
+  .page-inicio footer{padding-bottom:28px}
+}
