@@ -13,6 +13,7 @@
     const session = ++playbackSession;
     status.textContent = '';
     title.textContent = link.dataset.videoTitle;
+    viewer.setAttribute('data-video-format', link.dataset.videoFormat ?? 'landscape');
     video.setAttribute('aria-label', `Vídeo ${link.dataset.videoTitle}`);
     video.poster = link.querySelector('img').src;
     video.src = link.href;

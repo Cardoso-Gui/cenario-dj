@@ -234,11 +234,14 @@
 
 .aftermovie-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* At equal heights, a 16:9 thumbnail is about 3.16 times as wide as a 9:16 one. */
+  grid-template-columns: minmax(0, 3.16fr) repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .aftermovie-card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   border: 1px solid #453251;
   border-radius: 12px;
@@ -250,16 +253,19 @@
   display: grid;
   place-items: center;
   position: relative;
-  height: clamp(150px, 19vw, 300px);
-  background: #14101e;
+  aspect-ratio: 16 / 9;
+  max-height: 360px;
+  background: #090810;
 }
+
+.video-preview[data-video-format="portrait"] { aspect-ratio: 9 / 16; }
 
 .video-preview img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .video-play {
@@ -281,6 +287,7 @@
 
 .aftermovie-info {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -334,9 +341,16 @@
 .viewer-controls { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 14px; }
 .viewer-arrow svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.8; fill: none; }
 .viewer-counter { min-width: 110px; text-align: center; font-size: 14px; font-variant-numeric: tabular-nums; margin: 0; }
-.viewer-video { display: block; width: 100%; height: min(68svh,640px); object-fit: contain; background: #030205; }
+.viewer-video { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 72svh; object-fit: contain; background: #030205; }
+.video-viewer[data-video-format="portrait"] { width: min(420px, 100% - 32px, 40.5svh + 38px); }
+.video-viewer[data-video-format="portrait"] .viewer-video { aspect-ratio: 9 / 16; }
 .video-status { color: #ddd1e5; font-size: 14px; line-height: 1.5; margin: 12px 0 0; }
 .video-status:empty { display: none; }
+
+@media (max-width: 1080px) {
+  .aftermovie-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .aftermovie-card:first-child { grid-column: 1 / -1; }
+}
 
 @media (max-width: 800px) {
   .gallery-heading { align-items: start; flex-direction: column; }
@@ -361,8 +375,13 @@
   .photo-collage > :nth-child(6) { grid-area: 11 / 4 / 16 / 7; margin: -1px 0 17px -1px; }
   .gallery-more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .aftermovies { padding-top: 38px; }
-  .aftermovie-grid { grid-template-columns: 1fr; gap: 14px; }
-  .video-preview { height: auto; aspect-ratio: 16 / 9; }
+  .aftermovie-grid { gap: 8px; }
+  .aftermovie-info { padding: 8px 8px 0; }
+  .aftermovie-info h3 { font-size: 14px; overflow-wrap: anywhere; }
+  .aftermovie-info a { font-size: 13px; gap: 4px; }
+  .aftermovie-info a .ui-icon { width: 13px; height: 13px; }
+  .video-play { width: 40px; height: 40px; }
+  .video-play svg { width: 20px; height: 20px; }
   .gallery-booking { align-items: start; flex-direction: column; margin-block: 28px; }
   .page-fotos footer { padding-bottom: 28px; }
   .photo-viewer, .video-viewer { padding: 12px; }

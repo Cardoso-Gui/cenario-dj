@@ -66,9 +66,13 @@ test('galeria: vídeo só reproduz por clique e para ao fechar', async () => {
  let plays=0,pauses=0,loads=0;const status={},title={},close=el();
  const video=el({setAttribute(k,v){this[k]=v},removeAttribute(k){delete this[k]},play(){plays++;return Promise.resolve()},pause(){pauses++},load(){loads++}});
  const link=el({href:'video.mp4',dataset:{videoTitle:'Oficial JK'},querySelector(){return {src:'poster.jpg'}}});
- const viewer=el({open:false,querySelector(s){return {'video':video,'h2':title,'.video-status':status,'.video-close':close}[s]},showModal(){this.open=true},close(){this.open=false;this.events.close()}});
- vm.runInNewContext(videoJS,{document:{querySelector(){return viewer},querySelectorAll(){return [link]}}});
+ const portrait=el({href:'vertical.mp4',dataset:{videoTitle:'AfterFunk',videoFormat:'portrait'},querySelector(){return {src:'vertical.jpg'}}});
+ const viewer=el({open:false,setAttribute(k,v){this[k]=v},querySelector(s){return {'video':video,'h2':title,'.video-status':status,'.video-close':close}[s]},showModal(){this.open=true},close(){this.open=false;this.events.close()}});
+ vm.runInNewContext(videoJS,{document:{querySelector(){return viewer},querySelectorAll(){return [link,portrait]}}});
  assert.equal(plays,0);assert.equal(video.src,undefined);
  link.events.click({preventDefault(){}});assert.equal(plays,1);assert.equal(video.src,'video.mp4');assert.equal(title.textContent,'Oficial JK');
  close.events.click();assert.equal(pauses,1);assert.equal(loads,1);assert.equal(video.src,undefined);assert.equal(link.focused,true);
+ portrait.events.click({preventDefault(){}});assert.equal(viewer['data-video-format'],'portrait');
+ close.events.click();
+ link.events.click({preventDefault(){}});assert.equal(viewer['data-video-format'],'landscape');
 });
