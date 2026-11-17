@@ -1,0 +1,84 @@
+/* Approved editorial sections. Scoped to the Cenário DJ home. */
+.about {
+  margin-top: 48px;
+  padding: 48px 0 64px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about .eyebrow, .commission .eyebrow {
+  display: block;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 20px;
+}
+.about h2, .commission h2 {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0;
+  margin: 0;
+}
+.about h2 em { display: block; }
+.about-copy p, .commission-copy > p:last-child {
+  color: #bec8df;
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: none;
+}
+.about .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--green);
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 18px;
+  min-height: 44px;
+}
+.about .text-link svg { width: 25px; height: 25px; }
+.commission {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px 48px;
+  padding: 40px;
+  border: 1px solid #514467;
+  border-radius: 24px;
+}
+.commission-heading { grid-column: 1 / -1; }
+.commission .eyebrow { margin-bottom: 16px; }
+.commission-copy { max-width: none; min-width: 0; }
+.commission-contact { align-self: center; gap: 12px; min-width: 0; }
+.commission-btn {
+  background: var(--green);
+  color: #101806;
+  font-size: 16px;
+  padding: 17px 25px;
+  min-height: 56px;
+  border-radius: 40px;
+  gap: 22px;
+}
+.commission-btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+.commission-btn:hover { background: #d0ff7e; color: #101806; }
+.commission-contact > span { font-size: 13px; color: #bec8df; }
+.about .text-link:hover { color: #d0ff7e; }
+@media (max-width: 950px) {
+  .about { gap: 32px; }
+  .commission { grid-template-columns: 1fr; gap: 24px; padding: 32px; }
+  .commission-contact { align-items: flex-start; }
+}
+@media (max-width: 650px) {
+  .about { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; padding: 34px 0 40px; }
+  .about .eyebrow, .commission .eyebrow { font-size: 11px; margin-bottom: 16px; }
+  .about h2, .commission h2 { font-size: clamp(32px, 8.7vw, 43px); line-height: 1.1; }
+  .about-copy p, .commission-copy > p:last-child { font-size: 15px; }
+  .about .text-link { font-size: 16px; margin-top: 14px; }
+  .commission { padding: 26px 22px; gap: 22px; border-radius: 20px; }
+  .commission-btn { width: 100%; padding: 14px 18px; font-size: 14px; gap: 14px; white-space: normal; text-align: center; }
+  .commission-contact { align-items: stretch; text-align: center; }
+  .commission-contact > span { font-size: 12px; line-height: 1.5; }
+}
