@@ -10,12 +10,12 @@
 .ui-icon{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:middle}.play-icon{fill:currentColor;stroke:none;width:16px;height:16px}.play .ui-icon{width:23px;height:23px}.hero-socials a{display:inline-flex;align-items:center;gap:7px}.hero-socials .ui-icon{width:13px;height:13px}.footer-invite a{display:inline-flex;align-items:center;gap:5px}.footer-invite .ui-icon{width:12px;height:12px}.gallery-photo span>.ui-icon{width:20px;height:20px}.hero-portrait{object-position:center top}.about-photo img{object-position:center 24%}.gallery-photo img{object-position:center 15%}
 @media(min-width:1500px){.hero-portrait{object-position:center top}}@media(max-width:760px){.hero-portrait{object-position:center 4%}}
 
-/* Expand the artist layout with the viewport while keeping paragraphs readable. */
+/* Keep the original scale while distributing content across wide screens. */
+@media(min-width:1051px){.hero h1{max-width:580px}}
 @media(min-width:1500px){
-.header-inner{min-height:80px}.desktop-nav{gap:clamp(28px,2.2vw,60px)}.desktop-nav a{font-size:clamp(12px,.8vw,16px)}
-.hero{min-height:clamp(720px,44vw,980px)}.hero-portrait{width:min(60%,1400px)}.hero h1{width:47%;max-width:780px}.hero h2{font-size:clamp(62px,4vw,90px)}.hero-content{padding-top:80px;padding-bottom:100px}.hero-description{font-size:clamp(16px,1vw,21px)}
-.home-about{gap:clamp(64px,5vw,160px)}.home-about-copy{max-width:680px}.home-about-copy>p:not(.eyebrow){max-width:62ch;font-size:clamp(15px,1vw,19px)}.about-photo{height:clamp(425px,30vw,760px)}.gallery-photo,.gallery-video{height:clamp(235px,18vw,460px)}
-.release-info h3{font-size:clamp(30px,2.2vw,48px)}.release-info>p:not(.eyebrow){font-size:clamp(12px,.9vw,17px)}.connect-card{padding:clamp(30px,2.5vw,60px)}.connect-card p:not(.eyebrow){max-width:42ch;font-size:clamp(13px,.95vw,18px)}
+.hero-portrait{width:min(59%,980px)}
+.home-about{grid-template-columns:minmax(340px,.85fr) minmax(0,1.15fr);gap:64px}.about-photo{max-width:580px;height:425px}.home-about-copy{max-width:680px}.home-about-copy>p:not(.eyebrow){max-width:62ch}
+.release-card{display:grid;grid-template-columns:minmax(0,.47fr) minmax(0,.53fr);align-items:center;gap:24px;padding:22px}.release-cover{aspect-ratio:1.3}.release-info{padding:8px 0}.release-info h3{font-size:30px}.release-info>p:not(.eyebrow){font-size:12px}.release-info .button{padding-inline:17px}
 }
 
 /* Keep footer text readable and group its actions on wide monitors. */
