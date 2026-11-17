@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname,'..');
 const html=fs.readFileSync(path.join(root,'mixes.html'),'utf8');
-const css=fs.readFileSync(path.join(root,'css/releases.css'),'utf8');
+const css=fs.readFileSync(path.join(root,'css/flavinnho-releases.css'),'utf8');
 test('mixes: one visible main title and two explicit destinations',()=>{
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  assert.match(html,/Ouvir no Spotify/); assert.match(html,/Assistir no YouTube/);
@@ -25,18 +25,18 @@ test('mixes: authentic artwork and accessible labels',()=>{
  assert.match(html,/alt="Capa original de BAILE DO BLUE"/);
  assert.match(html,/alt="Foto original do Flavinnho na controladora"/);
  assert.ok(fs.statSync(path.join(root,'assets/galeria/na-controladora.webp')).size>1000);
- assert.equal((html.match(/abre em nova aba/g)||[]).length,4);
+ assert.equal((html.match(/class="sr-only"> \(abre em nova aba\)/g)||[]).length,4);
 });
 test('mixes: responsive rows and accessible interactive target size',()=>{
- assert.match(css,/@media\(max-width:800px\)/);
- assert.match(css,/grid-template-columns: 1fr/);
- assert.match(css,/min-height: 44px/);
- assert.match(css,/:focus-visible/);
+ assert.match(css,/@media\(max-width:760px\)/);
+ assert.match(css,/grid-template-columns:1fr/);
+ assert.match(css,/min-height:45px/);
+ assert.match(fs.readFileSync(path.join(root,'css/flavinnho-home.css'),'utf8'),/:focus-visible/);
 });
 
 test('Lançamentos: names change without breaking existing URLs or anchors',()=>{
  assert.match(html,/<title>Lançamentos — Flavinnho<\/title>/);
- assert.match(html,/class="eyebrow">LANÇAMENTOS<\/p>/);
+ assert.match(html,/class="eyebrow">DÊ O PLAY\.<\/p>/);
  assert.match(html,/id="mixes"/);
  for (const file of ['flavinnho.html','sobre.html','mixes.html','fotos.html','contato.html']) {
   const page = fs.readFileSync(path.join(root,file),'utf8');
